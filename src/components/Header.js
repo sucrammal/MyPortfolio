@@ -24,7 +24,7 @@ const Header = () => {
 			<div className="flex-shrink-0">
 			  <Link 
 				to="/" 
-				className="text-xl font-semibold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent hover:opacity-80 transition-opacity font-inter"
+				className="text-5xl font-semibold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent hover:opacity-80 transition-opacity font-inter"
 			  >
 				Marcus
 			  </Link>
@@ -33,7 +33,7 @@ const Header = () => {
 			<div className="hidden sm:flex sm:space-x-8">
 			  <Link
 				to="/projects"
-				className="group relative px-3 py-2 text-sm font-medium text-gray-700 transition-colors font-inter"
+				className="group relative px-3 py-2 text-lg font-medium text-gray-700 transition-colors font-inter"
 			  >
 				<span className="relative">
 				  Projects
@@ -42,7 +42,7 @@ const Header = () => {
 			  </Link>
 			  <Link
 				to="/news"
-				className="group relative px-3 py-2 text-sm font-medium text-gray-700 transition-colors font-inter"
+				className="group relative px-3 py-2 text-lg font-medium text-gray-700 transition-colors font-inter"
 			  >
 				<span className="relative">
 				  News
