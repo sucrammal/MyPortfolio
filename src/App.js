@@ -1,23 +1,16 @@
-import React from "react";
-import Header from "./components/Header";
-import Home from "./components/Home";
-import Portfolio from "./components/Portfolio";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import ProjectsPage from './components/ProjectsPage';
 
 function App() {
-	return (
-		<div className="min-h-screen flex flex-col">
-			{/* Header with navigation */}
-			<Header />
-			{/* Main content */}
-			<main className="flex-grow">
-				<Home />
-				<Portfolio />
-			</main>
-			{/* Footer */}
-			<Footer />
-		</div>
-	);
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
