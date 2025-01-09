@@ -74,7 +74,7 @@ function HomePage() {
 			  </a>
 			  , one of campus's largest engineering clubs where I lead a team of my own, the Robotic Manipulation and Mobility{" "}
 			  <a
-				href="https://avachen.net/"
+				href="https://roam.me.columbia.edu/"
 				target="_blank"
 				rel="noopener noreferrer"
 				className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
@@ -90,7 +90,7 @@ function HomePage() {
 			  >
 				Ava Chen
 			  </a>
-			  , and my own spare time. Welcome to my portfolio!
+			  {" "} on the MyHandSCI project, and my own spare time. Welcome to my portfolio!
 			</p>
 			<div className="flex justify-center md:justify-start">
 			  <Link to="/projects">

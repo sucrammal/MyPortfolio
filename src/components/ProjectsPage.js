@@ -142,7 +142,7 @@ function ProjectsPage() {
           onClick={closeOverlay}
         >
           <div
-            className="bg-white rounded-lg shadow-lg p-4 sm:p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto"
+            className="bg-white rounded-lg shadow-lg p-4 sm:p-6 max-w-5xl w-full max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <h2 className="text-xl sm:text-2xl font-bold mb-4">{selectedProject.title}</h2>
