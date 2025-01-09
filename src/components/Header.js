@@ -26,7 +26,7 @@ const Header = () => {
 				to="/" 
 				className="text-5xl font-semibold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent hover:opacity-80 transition-opacity font-inter"
 			  >
-				Marcus
+				Marcus Lam
 			  </Link>
 			</div>
 			{/* Navigation Links */}

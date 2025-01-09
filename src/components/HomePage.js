@@ -57,7 +57,7 @@ function HomePage() {
 			{/* Right Section: Description */}
 			<div className="flex flex-col justify-start md:w-2/3">
 			<h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
-				Hi, I'm Marcus Lam
+				Hello! I'm Marcus. 👋
 			</h1>
 			<p className="mt-6 text-lg leading-relaxed text-gray-700">
 				From an autonomous robot to detect and clear harmful algal blooms, to NLP and CV explorations, and to online multiplayer games, I try to inject my passion for building into three main disciplines: data science, robotics, and web development.
@@ -72,7 +72,7 @@ function HomePage() {
 				>
 				(CSI)
 				</a>
-				, one of campus's premier STEM clubs where I lead a team of my own, the Robotic Manipulation and Mobility{" "}
+				, one of campus's largest engineering clubs where I lead a team of my own, the Robotic Manipulation and Mobility{" "}
 				<a
 				href="https://avachen.net/"
 				target="_blank"

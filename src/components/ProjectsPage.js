@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Header from "../components/Header";
+import { Search } from "lucide-react";
 
 // Example project data with custom JSX content
 const projectsData = [
@@ -7,6 +8,7 @@ const projectsData = [
     id: 1,
     title: "Project 1",
     shortDescription: "This is a short description of Project 1.",
+    tags: ["python", "pandas", "matplotlib", "data visualization", "statistical analysis"],
     labels: ["Data Science"],
     fullContent: (
       <div>
@@ -27,6 +29,7 @@ const projectsData = [
     id: 2,
     title: "Project 2",
     shortDescription: "This is a short description of Project 2.",
+    tags: ["python", "pandas", "matplotlib", "data visualization", "statistical analysis"],
     labels: ["Web Development"],
     fullContent: (
       <div>
@@ -49,11 +52,34 @@ const projectsData = [
 function ProjectsPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState(null);
+  const [isSearchExpanded, setIsSearchExpanded] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredProjects =
-    selectedCategory === "All"
-      ? projectsData
-      : projectsData.filter((project) => project.labels.includes(selectedCategory));
+  // category filter
+  const filterProjects = (projects) => {
+    let filtered = projects;
+
+    // Category filter
+    if (selectedCategory !== "All") {
+      filtered = filtered.filter((project) =>
+        project.labels.includes(selectedCategory)
+      );
+    }
+
+    // Search filter
+    if (searchTerm) {
+      const searchRegex = new RegExp(searchTerm, 'i');
+      filtered = filtered.filter((project) =>
+        project.title.match(searchRegex) ||
+        project.tags.some(tag => tag.match(searchRegex)) ||
+        project.labels.some(label => label.match(searchRegex))
+      );
+    }
+
+    return filtered;
+  };
+
+  const filteredProjects = filterProjects(projectsData);
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
@@ -69,21 +95,46 @@ function ProjectsPage() {
       <div className="border-b-4 border-purple-300/40">
         <Header />
       </div>
-      {/* Navigation Bar */}
-      <nav className="flex justify-center bg-gradient-to-r from-purple-500/10 to-purple-600/5 backdrop-blur-sm py-6 shadow-sm">
-        {["All", "Data Science", "Robotics", "Web Development"].map((category) => (
-          <button
-            key={category}
-            onClick={() => setSelectedCategory(category)}
-            className={`px-6 py-2 mx-2 rounded-md transition-all duration-200 ${
-              selectedCategory === category
-                ? "bg-gradient-to-r from-purple-600 to-purple-800 text-white shadow-md"
-                : "bg-white/80 text-gray-700 border border-purple-100 hover:border-purple-300 hover:bg-purple-50"
-            }`}
-          >
-            {category}
-          </button>
-        ))}
+      {/* Navigation Bar with Search */}
+      <nav className="flex justify-between items-center bg-gradient-to-r from-purple-500/10 to-purple-600/5 backdrop-blur-sm py-6 px-6 shadow-sm">
+        <div className="flex flex-wrap gap-2">
+          {["All", "Data Science", "Robotics", "Web Development"].map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-6 py-2 rounded-md transition-all duration-200 ${
+                selectedCategory === category
+                  ? "bg-gradient-to-r from-purple-600 to-purple-800 text-white shadow-md"
+                  : "bg-white/80 text-gray-700 border border-purple-100 hover:border-purple-300 hover:bg-purple-50"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+        
+        <div className="relative flex items-center">
+          <div className={`flex items-center transition-all duration-300 ${
+            isSearchExpanded ? 'w-64' : 'w-10'
+          }`}>
+            <button
+              onClick={() => setIsSearchExpanded(!isSearchExpanded)}
+              className="absolute right-0 p-2 text-purple-600 hover:text-purple-800 transition-colors z-10"
+            >
+              <Search size={24} />
+            </button>
+            <input
+              type="text"
+              placeholder="Search projects..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className={`w-full py-2 px-4 pr-10 rounded-full border border-purple-100 focus:outline-none focus:border-purple-300 transition-all duration-300 ${
+                isSearchExpanded ? 'opacity-100' : 'opacity-0 w-0 p-0'
+              }`}
+              style={{ pointerEvents: isSearchExpanded ? 'auto' : 'none' }}
+            />
+          </div>
+        </div>
       </nav>
 
       {/* Projects Section */}
