@@ -1,48 +1,41 @@
 const newsData = [
     {
       id: 1,
-      title: "Breaking News: AI Breakthrough in Healthcare",
-      shortDescription: "Researchers have developed a new AI model that can diagnose diseases with 99% accuracy.",
-      tags: ["AI", "Healthcare", "Technology"],
+      title: "Winter 2024 Update",
+      shortDescription: "New porfolio site, building Geochain, improving engineering documentation",
+      tags: ["Engineering", "Technology"],
       fullContent: (
         <div>
-          <p>
-            In a groundbreaking development, researchers have created an AI model capable of diagnosing diseases with unprecedented accuracy. This innovation is expected to revolutionize the healthcare industry.
-          </p>
-          <img src="/images/ai-healthcare.jpg" alt="AI in Healthcare" className="w-full my-4 rounded-lg" />
           <section>
             <h4 className="font-semibold mt-4">Key Highlights</h4>
             <ul className="list-disc ml-6">
-              <li>99% accuracy in disease diagnosis.</li>
-              <li>Reduces diagnosis time by 80%.</li>
-              <li>Potential to save millions of lives annually.</li>
+              <li>Ported the portfolio! </li>
+              <li>Geochain: Geography hot-potato game. </li>
+              <li>Improving engineering docs for MechE and EE teams. </li>
             </ul>
           </section>
-        </div>
-      ),
-    },
-    {
-      id: 2,
-      title: "New Renewable Energy Source Discovered",
-      shortDescription: "Scientists have discovered a new renewable energy source that could replace fossil fuels.",
-      tags: ["Renewable Energy", "Environment", "Science"],
-      fullContent: (
-        <div>
+          <br></br>
           <p>
-            A team of scientists has discovered a new renewable energy source that could potentially replace fossil fuels. This discovery could significantly reduce global carbon emissions.
+            1. Geochain was a small side project with my friend Linh to explore Web Sockets. To be honest, it was a little hard to motivate myself to work on it while catching up with my family, but I'm glad we got it done! I dove head first into her webdev stack with no previous experience, and got a childhood game ported to an online format. Check the project entry out. 
+            <br></br>
+            <br></br>
+            2. After picking up the basic MERN stack, I quickly ported my portfolio site to React. Lots of entries to type up and update!
+            <br></br>
+            <br></br>
+            3. I've been thinking a lot about how to improve engineering documentation - especially in cross-functional teams that use complex hardware and electronic design tools and processes which are much harder to centrally document and visualize changes. I asked a couple of my student engineering intern friends, and reached out to a couple of PMs in robotics and biotech to get a better gauge on any current frustrations in the space. I came across the startup {" "}
+            
+            <a
+                href="https://www.firstresonance.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
+              >
+              First Resonance 
+          </a>
+          {" "} and their product that focuses on manufacturing and production workflows and management. I'm gonna keep researching and interviewing to see if there's a gap in the market that I can fill. Even if nothing comes out of this, I'd love to build a tool for engineering clubs (thinking about my FIRST robotics team and many others alike) to streamline their documentation process - because gosh its a pain!
           </p>
-          <img src="/images/renewable-energy.jpg" alt="Renewable Energy" className="w-full my-4 rounded-lg" />
-          <section>
-            <h4 className="font-semibold mt-4">Key Highlights</h4>
-            <ul className="list-disc ml-6">
-              <li>100% renewable and sustainable.</li>
-              <li>No harmful emissions.</li>
-              <li>Cost-effective compared to fossil fuels.</li>
-            </ul>
-          </section>
         </div>
       ),
-    },
-    // Add more news articles here
+    }
   ];
   export default newsData;
