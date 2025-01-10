@@ -107,6 +107,12 @@ function ProjectsPage() {
               >
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-800">{project.title}</h3>
                 <p className="mt-2 text-sm text-gray-600">{project.shortDescription}</p>
+                {/* Project Image */}
+                <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-48 object-cover rounded-lg my-4"
+                />
                 <div className="mt-3 flex flex-wrap gap-2">
                   {project.labels.map((label) => (
                     <span
