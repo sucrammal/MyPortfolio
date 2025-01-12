@@ -92,13 +92,13 @@ function ProjectsPage() {
       </nav>
 
       {/* Projects Section */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-        <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent mb-8 sm:mb-12">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
+        <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent mb-4">
           My Projects
         </h1>
         
         {filteredProjects.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
