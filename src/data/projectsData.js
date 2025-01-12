@@ -450,7 +450,45 @@ def decompose(time, emg, sampling_rate):
       labels: ["Web Development"],
       fullContent: (
         <section>
-  
+          <img src="/images/geochain/geochainGameRoom.png" alt="game-room" className="w-6/12" />
+            <h3 className="font-semibold mt-4">Premise</h3>
+            <ul className="list-disc ml-6">
+                <li>Port a childhood dinnertime game into an online competitive format. The game is played by naming a Country, City, or state, and </li>
+              </ul>
+            <h3 className="font-semibold mt-4">Responsibilities</h3>
+            <ul className="list-disc ml-6">
+                <li>Import and implement the data structure and logic behind verifying a correct location.</li>
+                <li>Help improve activation algorithm behind controlling the orthosis.</li>
+                <li>Read up on provided studies and concepts from PIs, and discuss research in weekly check-ins. </li>
+              </ul>
+            <h3 className="font-semibold mt-4">Outcomes</h3>
+            <ul className="list-disc ml-6">
+                <li>Performed signal decomposition (Fast Fourier Transform) to analyze stroke patient EMG data patterns, applying MSE, cosine similarity, and averaging to distinguish patient actions, such as opening and closing a grasp, to control an orthosis. </li>
+                <li>Used t-SNE and k-nearest neighbours to classify live, incoming EMG data for the patient as open, close, or relax signals.</li>
+                <li>Computed power spectral densities and median frequency to identify downshifts in frequency, indicating fatigue.</li>
+                <li>Designed a variable-radius pulley system that allows for customizable cable tensioning and retraction lengths to suit patient's liking. </li>
+              </ul>
+            <h3 className="font-semibold mt-4">Technologies Used</h3>
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              <span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
+                Python
+              </span>
+              <span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
+                SciPy
+              </span>
+              <span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
+                NumPy
+              </span>
+              <span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
+                Pandas
+              </span>
+              <span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
+                Matplotlib
+              </span>
+              <span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
+                Onshape
+              </span>
+            </div>
         </section>
       ),
     },
@@ -462,9 +500,11 @@ def decompose(time, emg, sampling_rate):
       image: "/images/vectari/vectariThumbnail",
       labels: ["Data Science"],
       fullContent: (
-        <section>
-
-        </section>
+        <div>
+          <section>
+          
+          </section>
+        </div>
       ),
     },
   ];
