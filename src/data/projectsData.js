@@ -743,6 +743,158 @@ def decompose(time, emg, sampling_rate):
                 </span>
               </div>
           </section>
+          <section>
+            <br></br>
+            <h2 className="font-bold mt-4 text-xl">LLM cleanup and data exploration with K-means.</h2>
+            <p>I used classic NLP techniques and an LLM to cleanup CFPB bank complaints which were low-quality: this preprocessing combo is used in all other projects at Vectari. 
+              <br />
+              <br />
+              These compliants are then vectorized, and I train a k-means clustering model on this data to group similar complaints together, finally, I use Latent Dirichlet Allocation (LDA) to identify topics within the clusters based on the most frequent terms.
+            </p>
+            <SyntaxHighlighter
+                  language="python"
+                  style={solarizedlight} // You can change this to any Prism.js theme
+                  customStyle={{
+                    padding: '1rem',
+                    borderRadius: '0.5rem',
+                    background: '#f5f2f0',
+                    fontSize: '0.8rem',
+                  }}
+                >
+                  {`system = """You will receive a transcript of a phone call between a call center agent at a mortgage servicing company and a customer/borrower.
+The transcription text is also low quality. These are calls about financial services and we have seen some text completely out of place.  For instance 'the first drug was fixed, and any drug after that was gonna be viral' should pretty clearly be
+'the first rate was fixed, and any rate after that was going to be variable'.
+Your job is to parse the text and using your natural language understanding and contextual awareness, please re-write the transcript and clean any grammar / things that do not make sense in financial use cases. After the response is generated, remove all full stops, commas, semicolons, colons, and quotation marks.
+"""
+def LLM_cleanup(transcript):
+    messages = [
+        {"role": "system", "content": system},
+        {"role": "user", "content": f'"""{transcript}"""'}
+    ]
+    response = client.chat.completions.create(
+        model=gpt_config['model'],
+        messages=messages
+    )
+    LLM_cleaned_sample = response.choices[0].message.content
+    return LLM_cleaned_sample
+
+def NL_cleanup(LLM_cleaned_sample):
+    for punctuation in string.punctuation:
+        LLM_cleaned_sample = LLM_cleaned_sample.replace(punctuation, '')
+    tokenized_sample = word_tokenize(LLM_cleaned_sample)
+    stemmer = PorterStemmer()
+    wnl = WordNetLemmatizer()
+    removed_stopwords_sample = []
+    for word in tokenized_sample:
+        if word not in STOPWORD_SET and not word.isdigit():
+            word = word.lower()
+            wnl.lemmatize(word) if wnl.lemmatize(word).endswith('e') else stemmer.stem(word)
+            removed_stopwords_sample.append(word)
+    cleaned_sentence = " ".join(removed_stopwords_sample)
+    return cleaned_sentence`}
+            </SyntaxHighlighter>
+            <br></br>
+            <ul className="list-disc ml-6">
+              <li>The LLM_cleanup function uses OpenAI's GPT model to clean and summarize low-quality transcripts.</li>
+              <li>The NL_cleanup function further processes the text by removing punctuation, tokenizing, and applying stemming and lemmatization. Stopwords and digits are removed to focus on meaningful words</li>
+            </ul>
+            <br></br>
+            <SyntaxHighlighter
+                  language="python"
+                  style={solarizedlight} // You can change this to any Prism.js theme
+                  customStyle={{
+                    padding: '1rem',
+                    borderRadius: '0.5rem',
+                    background: '#f5f2f0',
+                    fontSize: '0.8rem',
+                  }}
+                >
+                  {`# Vectorize training data
+vectorizer = CountVectorizer()
+vectorizer.fit(X)
+train_vect = vectorizer.transform(X)
+
+# K-Means Clustering
+num_clusters = 6
+kmeans = KMeans(n_clusters=num_clusters, random_state=42)
+kmeans.fit(train_vect)
+clusters = kmeans.predict(train_vect)
+
+# t-SNE for 2D Visualization
+tsne = TSNE(n_components=2, random_state=42)
+X_reduced = tsne.fit_transform(train_vect.toarray())
+plt.scatter(X_reduced[:, 0], X_reduced[:, 1], c=clusters, cmap='viridis', alpha=0.6)
+plt.title('Consumer Complaints Clustered (2D representation)')
+plt.show()
+
+# LDA for Topic Modeling
+vectorizer = CountVectorizer(ngram_range=(1, 3), stop_words='english')
+X = vectorizer.fit_transform(cleaned_dataset['Consumer complaint narrative'])
+tfidf_transformer = TfidfTransformer()
+X_tfidf = tfidf_transformer.fit_transform(X)
+lda = LatentDirichletAllocation(n_components=5, random_state=0)
+lda.fit(X_tfidf)
+
+# Display Topics
+def display_topics(model, feature_names, no_top_words):
+    for topic_idx, topic in enumerate(model.components_):
+        print("Topic %d:" % (topic_idx))
+        print(" ".join([feature_names[i] for i in topic.argsort()[:-no_top_words - 1:-1]]))
+
+display_topics(lda, vectorizer.get_feature_names_out(), no_top_words=10)`}
+            </SyntaxHighlighter>
+            <br></br>
+            <ul className="list-disc ml-6">
+              <li>A k-means clustering model is trained to group similar complaints into 6 clusters. t-SNE is used to reduce the dimensionality of the data for 2D visualization, helping to understand the clustering results.</li>
+              <li>TF-IDF transformation is applied to weigh the importance of words in the documents. Latent Dirichlet Allocation (LDA) is used to identify 5 topics within the clusters, and the top 10 words for each topic are displayed.</li>
+            </ul>
+            <br></br>
+          </section>
+          <section>
+            <h2 className="font-bold mt-4 text-xl">Hyperparameter optimization (HPO) with Ray Tune</h2>
+            <br></br>
+            <SyntaxHighlighter
+                  language="python"
+                  style={solarizedlight} // You can change this to any Prism.js theme
+                  customStyle={{
+                    padding: '1rem',
+                    borderRadius: '0.5rem',
+                    background: '#f5f2f0',
+                    fontSize: '0.8rem',
+                  }}
+                >
+                  {`# Put large datasets in the Ray object store
+train_ds_ref = ray.put(train_ds)
+test_ds_ref = ray.put(test_ds)
+
+#Define the train_model function with necessary arguments
+def train_model(config, train_ds_ref, test_ds_ref):
+    model = SetFitModel.from_pretrained("sentence-transformers/paraphrase-mpnet-base-v2")
+
+    trainer = SetFitTrainer(
+        model=model,
+        train_dataset=train_ds_ref,
+        eval_dataset=test_ds_ref,
+        loss_class=CosineSimilarityLoss,
+        batch_size=config["batch_size"],
+        num_iterations=config["num_iterations"],
+        column_mapping={"cleaned_text": "text", "labels": "label"}
+    )
+
+    trainer.train()
+    metrics = trainer.evaluate()
+
+    return metrics['accuracy']`}
+            </SyntaxHighlighter>
+            <br></br>
+            <ul className="list-disc ml-6">
+              <li>Used SetFit, a HuggingFace model suited for few-shot learning for classification.</li>
+              <li>After using Ray objects to batch training to reduce function size, used Ray Tune to distribute hyperparameter tuning across multiple trials to discover optimized hyperparameters.</li>
+            </ul>
+          </section>
+          <section>
+            
+          </section>
         </div>
       ),
     },
