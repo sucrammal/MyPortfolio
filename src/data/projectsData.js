@@ -923,7 +923,7 @@ def train_model(config, train_ds_ref, test_ds_ref):
                 },
             }]
             
-            def fine_tune_classifier(new_transcript, json_file_name):
+  def fine_tune_classifier(new_transcript, json_file_name):
     messages = [
         {
             "role": "system",
@@ -960,18 +960,6 @@ def train_model(config, train_ds_ref, test_ds_ref):
         return response.choices[0].message.content`}
             </SyntaxHighlighter>
             <br></br>
-            <SyntaxHighlighter
-                  language="python"
-                  style={solarizedlight} // You can change this to any Prism.js theme
-                  customStyle={{
-                    padding: '1rem',
-                    borderRadius: '0.5rem',
-                    background: '#f5f2f0',
-                    fontSize: '0.8rem',
-                  }}
-                >
-                  {``}
-            </SyntaxHighlighter>
             <ul className="list-disc ml-6">
               <li>Originally used GPT 3.5 to analyze labeled training complaint transcripts, and classify an unlabeled complaint.</li>
               <li>2 detailed and structured prompting frameworks - CO-STAR and TIDD-EC - were used to defines the task, instructions, and constraints, ensuring the AI understands the context and requirements to classify the complaints. </li>
@@ -1011,6 +999,88 @@ def convert_to_jsonl(labeled_df, output_file):
               <li>Complaint categories with more distinct/unique language were naturally easier to classify: e.g. "fraud or scam" complaints reaching a top precision of 96%. </li>
             </ul>
           </section>
+          <section>
+            <h2 className="font-bold mt-4 text-xl">BERT model to classify complaints: </h2>
+            <br></br>
+            <p> Bank complaints often contain complex language, financial jargon, and nuanced customer sentiments. BERT's bidirectional nature allows it to understand the context of words in a sentence by considering both the left and right context simultaneously. I wanted to fine tune the BERT model based on this bank complaint application.</p>
+            <br></br>
+            <SyntaxHighlighter
+                    language="python"
+                    style={solarizedlight} // You can change this to any Prism.js theme
+                    customStyle={{
+                      padding: '1rem',
+                      borderRadius: '0.5rem',
+                      background: '#f5f2f0',
+                      fontSize: '0.8rem',
+                    }}
+                  >
+                    {`# Load the BERT tokenizer
+tokenizer = BertTokenizer.from_pretrained("bert-base-uncased", do_lower_case=True)
+
+# Tokenize the text data
+def tokenize_text(text_series, max_length=256):
+    tokenized_texts = text_series.apply(
+        lambda x: tokenizer.encode(
+            str(x),                  
+            add_special_tokens=True, # Add [CLS] and [SEP] tokens for BERT 
+            max_length=max_length,   # Truncate/pad to max_length
+            truncation=True,         # Truncate long sequences
+            padding='max_length'     # Pad short sequences
+        )
+    )
+    return tokenized_texts
+
+# Create attention masks
+def create_attention_masks(sequences):
+    masks = []
+    for seq in sequences:
+        mask = [float(token != 0) for token in seq]
+        masks.append(mask)
+    return masks`}
+              </SyntaxHighlighter>
+              <ul className="list-disc ml-6">
+                <li>After cleaning the low-quality complaints with an LLM, tokenized text data using the BERT tokenizer, ensuring the input is compatible with the BERT model.</li>
+                <li>Created attention masks to distinguish between actual tokens and padding</li>
+              </ul>
+              <br></br>
+              <SyntaxHighlighter
+                    language="python"
+                    style={solarizedlight} // You can change this to any Prism.js theme
+                    customStyle={{
+                      padding: '1rem',
+                      borderRadius: '0.5rem',
+                      background: '#f5f2f0',
+                      fontSize: '0.8rem',
+                    }}
+                  >
+                    {`# Training loop
+for epoch_i in range(epochs):
+    print(f'Epoch {epoch_i + 1} / {epochs}')
+    model.train()
+    total_train_loss = 0
+
+    for step, batch in enumerate(train_dataloader):
+        b_input_ids, b_input_mask, b_labels = tuple(t.to(device) for t in batch)
+        model.zero_grad()
+        outputs = model(b_input_ids, attention_mask=b_input_mask, labels=b_labels)
+        loss = outputs.loss
+        total_train_loss += loss.item()
+        loss.backward()
+        torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+        optimizer.step()
+        scheduler.step()
+
+    avg_train_loss = total_train_loss / len(train_dataloader)
+    print(f'Average training loss: {avg_train_loss:.2f}')`}
+              </SyntaxHighlighter>
+              <ul className="list-disc ml-6">
+                <li>Trained the BERT model for sequence classification using a training loop over multiple epochs.</li>
+                <li>Applied gradient clipping to prevent exploding gradients, ensuring stable training.</li>
+                <li>Tracked and averaged the training loss across batches to monitor model performance during training.</li>
+              </ul>
+              <br></br>
+              <img src="/images/vectari/vectariBERTPerformance.png" alt="BERT-Performance" className="w-6/12" />
+          </section>
           <h2 className="font-bold mt-4 text-xl">Final presentation: {" "}
             <a
                     href="https://docs.google.com/presentation/d/1am6Zv3sxWqALaUhsjy8YzaZsJKurehfETtIDXvgW8Ss/edit?usp=sharing"
@@ -1029,8 +1099,21 @@ def convert_to_jsonl(labeled_df, output_file):
                     className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
                     >
                     Link
-                  </a>
+              </a>
           </h2> 
+        </div>
+      ),
+    },
+    {
+      id: 5,
+      title: "",
+      shortDescription: "Building LLM, AI classifiers for digital transaction complaints.",
+      tags: ["LLMs", "OpenAI", "NLP", "HPO", "BERT", "Python", "Numpy", "pandas", "t-SNE", "RF", "K-means"],
+      image: "/images/vectari/vectari3DKmeans.png",
+      labels: ["Data Science"],
+      fullContent: (
+        <div>
+         
         </div>
       ),
     },
