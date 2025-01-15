@@ -852,7 +852,6 @@ display_topics(lda, vectorizer.get_feature_names_out(), no_top_words=10)`}
           </section>
           <section>
             <h2 className="font-bold mt-4 text-xl">Hyperparameter optimization (HPO) with Ray Tune</h2>
-            <br></br>
             <SyntaxHighlighter
                   language="python"
                   style={solarizedlight} // You can change this to any Prism.js theme
@@ -893,8 +892,145 @@ def train_model(config, train_ds_ref, test_ds_ref):
             </ul>
           </section>
           <section>
+            <h2 className="font-bold mt-4 text-xl">LLM classifier and fine tuning. </h2>
+            <br></br>
+            <SyntaxHighlighter
+                  language="python"
+                  style={solarizedlight} // You can change this to any Prism.js theme
+                  customStyle={{
+                    padding: '1rem',
+                    borderRadius: '0.5rem',
+                    background: '#f5f2f0',
+                    fontSize: '0.8rem',
+                  }}
+                >
+                  {`tools = [{
+                "type": "function",
+                "function": {
+                    "name": "complaint_classifier",
+                    "description": "select the correct category for an incoming complaint",
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "category": {
+                              "type": "string",
+                              "enum": ["Fraud or scam", "Money was not available when promised", "Wrong amount charged or receive", "Incorrect/missing disclosures or info"]
+
+                            },
+                        },
+                    },
+                    "required": ["category"],
+                },
+            }]
             
+            def fine_tune_classifier(new_transcript, json_file_name):
+    messages = [
+        {
+            "role": "system",
+            "content": generate_fine_tune_prompt(json_file_name)
+        },
+        {
+            "role": "user",
+            "content": f'""" Transcript to-be classified: \n {new_transcript} """'
+        }
+    ]
+
+    # Include the tool in the API call
+    response = client.chat.completions.create(
+        model=gpt_config['model'],
+        messages=messages,
+        tools=tools,
+        tool_choice={"type": "function", "function": {"name": "complaint_classifier"}},
+        temperature=0,
+        top_p=0.2
+    )
+
+    # Extract the function call from the response
+    if response.choices[0].message.tool_calls:
+        function_call = response.choices[0].message.tool_calls[0].function
+        if function_call.name == "complaint_classifier":
+            # Parse the arguments
+            import json
+            arguments = json.loads(function_call.arguments)
+            category = arguments.get("category")
+            return category
+        else:
+            return response.choices[0].message.content
+    else:
+        return response.choices[0].message.content`}
+            </SyntaxHighlighter>
+            <br></br>
+            <SyntaxHighlighter
+                  language="python"
+                  style={solarizedlight} // You can change this to any Prism.js theme
+                  customStyle={{
+                    padding: '1rem',
+                    borderRadius: '0.5rem',
+                    background: '#f5f2f0',
+                    fontSize: '0.8rem',
+                  }}
+                >
+                  {``}
+            </SyntaxHighlighter>
+            <ul className="list-disc ml-6">
+              <li>Originally used GPT 3.5 to analyze labeled training complaint transcripts, and classify an unlabeled complaint.</li>
+              <li>2 detailed and structured prompting frameworks - CO-STAR and TIDD-EC - were used to defines the task, instructions, and constraints, ensuring the AI understands the context and requirements to classify the complaints. </li>
+              <li>Improved the model by tooling and modifying parameters to stricten/constrain output. </li>
+            </ul>
+            <SyntaxHighlighter
+                  language="python"
+                  style={solarizedlight} // You can change this to any Prism.js theme
+                  customStyle={{
+                    padding: '1rem',
+                    borderRadius: '0.5rem',
+                    background: '#f5f2f0',
+                    fontSize: '0.8rem',
+                  }}
+                >
+                  {`# Convert the input-output training data into standardized JSON format.
+# Can change the JSON format for different structure and clarity
+import json
+def convert_to_jsonl(labeled_df, output_file):
+  jsonl_data = []
+  for index, row in labeled_df.iterrows():
+    # Assuming the dataset is comma-separated
+    user_message = row['Consumer complaint narrative']
+    model_response = row["Issue"]
+    conversation = [
+    {'role': 'system', 'content': raw_prompt},
+    {'role': 'user', 'content': user_message},
+    {'role': 'assistant', 'content': model_response}]
+    jsonl_data.append(json.dumps({"messages": conversation}))
+
+  with open(output_file, 'w', encoding='utf-8') as outfile:
+    outfile.write($n.join(jsonl_data))`}
+            </SyntaxHighlighter>
+            <ul className="list-disc ml-6">
+              <li>Then, converted some selected, high-quality complaint transcript data into JSON format to fine-tune in OpenAI playground. </li>
+              <li>The new classifier's F1 scores and overall accuracy on the test cases were much better than the previous "vanilla" prompt classifier.</li>
+              <li>Complaint categories with more distinct/unique language were naturally easier to classify: e.g. "fraud or scam" complaints reaching a top precision of 96%. </li>
+            </ul>
           </section>
+          <h2 className="font-bold mt-4 text-xl">Final presentation: {" "}
+            <a
+                    href="https://docs.google.com/presentation/d/1am6Zv3sxWqALaUhsjy8YzaZsJKurehfETtIDXvgW8Ss/edit?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
+                    >
+                    Link
+                  </a>
+          </h2> 
+          <h2 className="font-bold mt-4 text-xl">Engineering logs: {" "}
+            <a
+                    href="https://docs.google.com/document/d/1sDD8cvhMrt4eLYHbqxYHbcyDKNMZV67mp7X5LGi41m8/edit?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
+                    >
+                    Link
+                  </a>
+          </h2> 
         </div>
       ),
     },
