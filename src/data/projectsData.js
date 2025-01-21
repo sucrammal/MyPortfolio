@@ -405,6 +405,7 @@ def decompose(time, emg, sampling_rate):
                 <li>Computed the PSD and mean frequency of averages across 2 types of trials: rested muscles vs. fatigued muscles. Compared trials sampled at 50 Hz and 200 Hz </li>
                 <li>Found approximately ~3 Hz downshift in frequency in fatigued, 200 Hz trials. This will be used to modify the classifier to account for fatigue.</li>
           </ul>
+          <br></br>
           </section>
           <section>
             <h2 className="font-bold mt-4 text-xl">Variable Radius Pulley:</h2>  
@@ -431,7 +432,17 @@ def decompose(time, emg, sampling_rate):
             </ul>
           </section>
           <br></br>
-          <h2 className="font-bold mt-4 text-xl">Full technical documentation: {" "}
+          <h2 className="font-bold mt-4 text-xl">Frequency domain analysis technical documentation: {" "}
+            <a
+                    href="https://docs.google.com/document/d/1r1BxkqsloVJc1AsoWS4szQCYteCuOGAJ/edit?usp=sharing&ouid=102824943698376675022&rtpof=true&sd=true"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
+                    >
+                    Link
+                  </a>
+          </h2> 
+          <h2 className="font-bold mt-4 text-xl">Pulley design technical documentation: {" "}
             <a
                     href="https://drive.google.com/drive/folders/16aeht0bvV5tNa-OCeqyF9rbCM6SBzODY?usp=sharing"
                     target="_blank"
@@ -1188,7 +1199,7 @@ for epoch_i in range(epochs):
       id: 6,
       title: "Convolutional Neural Network (CNN) for Skin Cancer Detection",
       shortDescription: "Distinguish benign and harmful skin lesions",
-      tags: ["CAD", "Arduino", "RC", "Electronics"],
+      tags: ["python", "ML", "CNN", "OpenCV"],
       image: "https://stanford.edu/~shervine/teaching/cs-230/illustrations/convolution-layer-a.png?1c517e00cb8d709baf32fc3d39ebae67",
       labels: ["Data Science"],
       fullContent: (
