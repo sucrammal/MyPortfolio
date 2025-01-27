@@ -7,7 +7,7 @@ const projectsData = [
       title: "Leading CSI AQUAS",
       shortDescription: "Autonomous Harmful Algal Bloom (HAB) Detection and Eradication Robot",
       tags: ["CAD", "Electronics", "Autonomous", "Arduino", "Environment"],
-      image: "/images/aquas/aquas-thumbnail.JPG",
+      image: "./images/aquas/aquas-thumbnail.JPG",
       labels: ["Robotics", "Web Development"],
       fullContent: (
         <div>
@@ -60,7 +60,7 @@ const projectsData = [
           </section>
           <section>
             <h2 className="font-bold mt-4 text-xl">Overarching Design</h2>
-            <img src="%PUBLIC_URL%/images/aquas/aquasBD.png" alt="Block Diagram" className="w-7/12" />
+            <img src="./images//aquas/aquasBD.png" alt="Block Diagram" className="w-7/12" />
             {/* Design decision table */}
             <table className="min-w-full bg-white border border-gray-400">
                 <thead>
@@ -190,7 +190,7 @@ func GetQueue() [10]DataRow {
           </section>
           <section>
             <h2 className="font-bold mt-4 text-xl">CAD Components</h2>
-            <img src="%PUBLIC_URL%/images/aquas/aquasPumpCad.png" alt="Pump Clamps" className="w-7/12" />
+            <img src="./images//aquas/aquasPumpCad.png" alt="Pump Clamps" className="w-7/12" />
             <ul className="list-disc ml-6">
                 <li>Adjustable height mount for dispersal pumps.</li>
                 <li>Heat inserts for screws, CADded using subtraction of pump model.</li>
@@ -215,14 +215,14 @@ func GetQueue() [10]DataRow {
       title: "ROAM Lab MyHandSCI",
       shortDescription: "Orthosis for stroke and spinal cord injury patients.",
       tags: ["ML", "python", "pandas", "matplotlib", "data visualization", "stats", "signals", "CAD"],
-      image: "/images/ROAM/roamMyHandThumbnail.png",
+      image: ".images/ROAM/roamMyHandThumbnail.png",
       labels: ["Robotics", "Data Science"],
       fullContent: (
         <div>
           <section>
             <div className="flex sm:flex-row flex-col items-center">
-              <img src="%PUBLIC_URL%/images/ROAM/roamMyHand.png" alt="PSD_Chart" className="w-6/12" />
-              <img src="%PUBLIC_URL%/images/ROAM/roamPSD.png" alt="PSD_Chart" className="w-6/12" />
+              <img src="./images//ROAM/roamMyHand.png" alt="PSD_Chart" className="w-6/12" />
+              <img src="./images//ROAM/roamPSD.png" alt="PSD_Chart" className="w-6/12" />
             </div>
             <h3 className="font-semibold mt-4">Premise</h3>
             <ul className="list-disc ml-6">
@@ -398,8 +398,8 @@ def decompose(time, emg, sampling_rate):
     plt.show()`}
           </SyntaxHighlighter>
           <div className="flex sm:flex-row flex-col items-center">
-            <img src="%PUBLIC_URL%/images/ROAM/roamMinEffort.png" alt="Min_effort" className="w-6/12" />
-            <img src="%PUBLIC_URL%/images/ROAM/roamMaxEffort.png" alt="Max_effort" className="w-6/12" />
+            <img src="./images//ROAM/roamMinEffort.png" alt="Min_effort" className="w-6/12" />
+            <img src="./images//ROAM/roamMaxEffort.png" alt="Max_effort" className="w-6/12" />
           </div>
           <ul className="list-disc ml-6">
                 <li>Computed the PSD and mean frequency of averages across 2 types of trials: rested muscles vs. fatigued muscles. Compared trials sampled at 50 Hz and 200 Hz </li>
@@ -410,7 +410,7 @@ def decompose(time, emg, sampling_rate):
           <section>
             <h2 className="font-bold mt-4 text-xl">Variable Radius Pulley:</h2>  
             <video className="w-full rounded-lg shadow-lg" controls>
-              <source src="%PUBLIC_URL%/images/ROAM/roamPulleyVideo.mp4" type="video/mp4" />
+              <source src="./images//ROAM/roamPulleyVideo.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <br></br>
@@ -421,11 +421,11 @@ def decompose(time, emg, sampling_rate):
             </ul>
             <br></br>
             <div className="flex sm:flex-row flex-col items-center">
-              <img src="%PUBLIC_URL%/images/ROAM/roam2slider1.JPG" alt="Min_effort" className="w-3/12" />
-              <img src="%PUBLIC_URL%/images/ROAM/roam2slider2.JPG" alt="Max_effort" className="w-3/12" />
-              <img src="%PUBLIC_URL%/images/ROAM/roam3slider.JPG" alt="Max_effort" className="w-3/12" />
+              <img src="./images//ROAM/roam2slider1.JPG" alt="Min_effort" className="w-3/12" />
+              <img src="./images//ROAM/roam2slider2.JPG" alt="Max_effort" className="w-3/12" />
+              <img src="./images//ROAM/roam3slider.JPG" alt="Max_effort" className="w-3/12" />
             </div>
-            <img src="%PUBLIC_URL%/images/ROAM/roam3sliderCad.png" alt="Min_effort" className="w-6/12" />
+            <img src="./images//ROAM/roam3sliderCad.png" alt="Min_effort" className="w-6/12" />
             <br></br>
             <ul className="list-disc ml-6">
                 <li>CAD assembly to check margins and animate joints (sliders). </li>
@@ -460,13 +460,13 @@ def decompose(time, emg, sampling_rate):
       title: "Geochain.io",
       shortDescription: "Multiplayer, geography hot-potato game.",
       tags: ["Javascript", "WebSockets", "React", "Node.js", "Express.js", "HTML", "CSS"],
-      image: "/images/geochain/geochainGameRoom.png",
+      image: "./images/geochain/geochainGameRoom.png",
       labels: ["Web Development"],
       fullContent: (
         <div>
           <section>
             <video className="w-full rounded-lg shadow-lg" controls>
-              <source src="%PUBLIC_URL%/images/geochain/geochainDemoVid.mp4" type="video/mp4" />
+              <source src="./images//geochain/geochainDemoVid.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
               <h3 className="font-semibold mt-4">Premise</h3>
@@ -711,12 +711,12 @@ def decompose(time, emg, sampling_rate):
       title: "Vectari (Now CredytU)",
       shortDescription: "Building LLM, AI classifiers for digital transaction complaints.",
       tags: ["LLMs", "OpenAI", "NLP", "HPO", "BERT", "Python", "Numpy", "pandas", "t-SNE", "RF", "K-means"],
-      image: "/images/vectari/vectari3DKmeans.png",
+      image: "./images/vectari/vectari3DKmeans.png",
       labels: ["Data Science"],
       fullContent: (
         <div>
           <section>
-          <img src="%PUBLIC_URL%/images/vectari/vectari3DKmeans.png" alt="K-means with tSNE" className="w-6/12" />
+          <img src="./images//vectari/vectari3DKmeans.png" alt="K-means with tSNE" className="w-6/12" />
           <h3 className="font-semibold mt-4">Premise</h3>
               <ul className="list-disc ml-6">
                   <li>One of two interns place on a team to classify 2 types of bank complaints: digital transactions and mortgages. </li>
@@ -1093,7 +1093,7 @@ for epoch_i in range(epochs):
                 <li>Tracked and averaged the training loss across batches to monitor model performance during training.</li>
               </ul>
               <br></br>
-              <img src="%PUBLIC_URL%/images/vectari/vectariBERTPerformance.png" alt="BERT-Performance" className="w-6/12" />
+              <img src="./images//vectari/vectariBERTPerformance.png" alt="BERT-Performance" className="w-6/12" />
           </section>
           <h2 className="font-bold mt-4 text-xl">Final presentation: {" "}
             <a
@@ -1123,12 +1123,12 @@ for epoch_i in range(epochs):
       title: "Star Wars BB8 Robot",
       shortDescription: "An X-drive robot that goes inside a sphere to look like BB8",
       tags: ["CAD", "Arduino", "RC", "Electronics"],
-      image: "/images/bb8/bb8CAD.png",
+      image: "./images/bb8/bb8CAD.png",
       labels: ["Robotics"],
       fullContent: (
         <div>
          <section>
-          <img src="%PUBLIC_URL%/images/bb8/bb8CADFull.png" alt="bb8-CAD" className="w-6/12" />
+          <img src="./images//bb8/bb8CADFull.png" alt="bb8-CAD" className="w-6/12" />
           <h3 className="font-semibold mt-4">Premise</h3>
               <ul className="list-disc ml-6">
                   <li>Wanted to replicate a to-scale BB8 Robot using an omni-directional internal robot. </li>
@@ -1166,7 +1166,7 @@ for epoch_i in range(epochs):
             <h2 className="font-bold mt-4 text-xl">Suspension System </h2>
             <br></br>
             <video className="w-full rounded-lg shadow-lg" controls>
-              <source src="%PUBLIC_URL%/images/bb8/bb8Suspension.mp4" type="video/mp4" />
+              <source src="./images//bb8/bb8Suspension.mp4" type="video/mp4" />
             </video>
             <br></br>
             <ul className="list-disc ml-6">
@@ -1178,7 +1178,7 @@ for epoch_i in range(epochs):
           <section>
             <h2 className="font-bold mt-4 text-xl">Circuit Design: </h2>
             <br></br>
-            <img src="%PUBLIC_URL%/images/bb8/bb8Schematic.png" alt="bb8-Schematic" className="w-6/12" />
+            <img src="./images//bb8/bb8Schematic.png" alt="bb8-Schematic" className="w-6/12" />
             <br></br>
             <ul className="list-disc ml-6">
                 <li>Sharing a 14V LiPo power source using a voltage step-down.</li>
@@ -1189,7 +1189,7 @@ for epoch_i in range(epochs):
             <h2 className="font-bold mt-4 text-xl">Demo: </h2>
             <br></br>
             <video className="w-full rounded-lg shadow-lg" controls>
-              <source src="%PUBLIC_URL%/images/bb8/bb8Drive.mp4" type="video/mp4" />
+              <source src="./images//bb8/bb8Drive.mp4" type="video/mp4" />
             </video>
           </section>
         </div>
@@ -1317,7 +1317,7 @@ for epoch_i in range(epochs):
                   <li>Used RMSprop to optimize training, and the simple grid search algorithm to perform HPO.</li>
               </ul>
               <br></br>
-              <img src="%PUBLIC_URL%/images/cnn/cnn_cm1.png" alt="Confusion Matrix" className="w-6/12" />
+              <img src="./images//cnn/cnn_cm1.png" alt="Confusion Matrix" className="w-6/12" />
               <ul className="list-disc ml-6">
                   <li>Labels are different diagnoses, benign and dangerous.</li>
               </ul>
