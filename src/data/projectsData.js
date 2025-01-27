@@ -215,7 +215,7 @@ func GetQueue() [10]DataRow {
       title: "ROAM Lab MyHandSCI",
       shortDescription: "Orthosis for stroke and spinal cord injury patients.",
       tags: ["ML", "python", "pandas", "matplotlib", "data visualization", "stats", "signals", "CAD"],
-      image: ".images/ROAM/roamMyHandThumbnail.png",
+      image: "./images/ROAM/roamMyHandThumbnail.png",
       labels: ["Robotics", "Data Science"],
       fullContent: (
         <div>
