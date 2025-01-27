@@ -12,7 +12,7 @@ const projectsData = [
       fullContent: (
         <div>
           <section>
-            <img src="%PUBLIC_URL%/images/aquas/aquasBoat.JPG" alt="Boat" className="w-6/12" />
+            <img src='${process.env.PUBLIC_URL}/images/aquas/aquasBoat.JPG' alt="Boat" className="w-6/12" />
             <h3 className="font-semibold mt-4">Premise</h3>
             <ul className="list-disc ml-6">
                 <li>Design a mass-manufacturable aquatic robot/boat that collects environmental data, collect water samples, and disperse research algecide to defeat HABs.</li>
@@ -410,7 +410,7 @@ def decompose(time, emg, sampling_rate):
           <section>
             <h2 className="font-bold mt-4 text-xl">Variable Radius Pulley:</h2>  
             <video className="w-full rounded-lg shadow-lg" controls>
-              <source src="/images/ROAM/roamPulleyVideo.mp4" type="video/mp4" />
+              <source src="%PUBLIC_URL%/images/ROAM/roamPulleyVideo.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <br></br>
@@ -466,7 +466,7 @@ def decompose(time, emg, sampling_rate):
         <div>
           <section>
             <video className="w-full rounded-lg shadow-lg" controls>
-              <source src="/images/geochain/geochainDemoVid.mp4" type="video/mp4" />
+              <source src="%PUBLIC_URL%/images/geochain/geochainDemoVid.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
               <h3 className="font-semibold mt-4">Premise</h3>
@@ -1166,7 +1166,7 @@ for epoch_i in range(epochs):
             <h2 className="font-bold mt-4 text-xl">Suspension System </h2>
             <br></br>
             <video className="w-full rounded-lg shadow-lg" controls>
-              <source src="/images/bb8/bb8Suspension.mp4" type="video/mp4" />
+              <source src="%PUBLIC_URL%/images/bb8/bb8Suspension.mp4" type="video/mp4" />
             </video>
             <br></br>
             <ul className="list-disc ml-6">
@@ -1189,7 +1189,7 @@ for epoch_i in range(epochs):
             <h2 className="font-bold mt-4 text-xl">Demo: </h2>
             <br></br>
             <video className="w-full rounded-lg shadow-lg" controls>
-              <source src="/images/bb8/bb8Drive.mp4" type="video/mp4" />
+              <source src="%PUBLIC_URL%/images/bb8/bb8Drive.mp4" type="video/mp4" />
             </video>
           </section>
         </div>

@@ -22,7 +22,7 @@ function HomePage() {
 				className="transform hover:scale-110 transition-transform duration-200"
 			  >
 				<img
-				  src="./images/github-icon.png"
+				  src="%PUBLIC_URL%/images/github-icon.png"
 				  alt="GitHub"
 				  className="w-8 md:w-10 aspect-square"
 				/>
@@ -34,7 +34,7 @@ function HomePage() {
 				className="transform hover:scale-110 transition-transform duration-200"
 			  >
 				<img
-				  src="./images/linkedin-icon.png"
+				  src="%PUBLIC_URL%/images/linkedin-icon.png"
 				  alt="LinkedIn"
 				  className="w-8 md:w-10 aspect-square"
 				/>
@@ -46,7 +46,7 @@ function HomePage() {
 				className="transform hover:scale-110 transition-transform duration-200"
 			  >
 				<img
-				  src="./images/gmail-icon.png"
+				  src="%PUBLIC_URL%/images/gmail-icon.png"
 				  alt="Email"
 				  className="w-8 md:w-10 aspect-square"
 				/>
