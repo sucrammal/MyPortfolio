@@ -12,7 +12,7 @@ const projectsData = [
       fullContent: (
         <div>
           <section>
-            <img src='${process.env.PUBLIC_URL}/images/aquas/aquasBoat.JPG' alt="Boat" className="w-6/12" />
+            <img src='./images/aquas/aquasBoat.JPG' alt="Boat" className="w-6/12" />
             <h3 className="font-semibold mt-4">Premise</h3>
             <ul className="list-disc ml-6">
                 <li>Design a mass-manufacturable aquatic robot/boat that collects environmental data, collect water samples, and disperse research algecide to defeat HABs.</li>
@@ -108,7 +108,7 @@ const projectsData = [
           </section>
           <section>
             <h2 className="font-bold mt-4 text-xl">Electronic systems</h2>
-            <img src="%PUBLIC_URL%/images/aquas/aquasSchematicF24.png" alt="Circuit Diagram" className="w-7/12" />
+            <img src="./images/aquas/aquasSchematicF24.png" alt="Circuit Diagram" className="w-7/12" />
             <ul className="list-disc ml-6">
                 <li>A common 14V power source powers the high-voltage motors and pumps, while a step-down module routes power to the low-voltage control system</li>
                 <li>Arduino, Atlas Scientific EZO sensor array, PWM motor controllers, nifty pre-processing of receiver signals.</li>

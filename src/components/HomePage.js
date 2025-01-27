@@ -10,7 +10,7 @@ function HomePage() {
 		  {/* Left Section: Image and Icons */}
 		  <div className="flex flex-col items-center w-full md:w-1/3">
 			<img
-			  src="%PUBLIC_URL%/images/meWelding.png"
+			  src="./images/meWelding.png"
 			  alt="Your Profile"
 			  className="rounded-full w-48 h-48 md:w-72 md:h-72 border-4 border-purple-200 object-cover shadow-lg"
 			/>
@@ -22,7 +22,7 @@ function HomePage() {
 				className="transform hover:scale-110 transition-transform duration-200"
 			  >
 				<img
-				  src="%PUBLIC_URL%/images/github-icon.png"
+				  src="./images/github-icon.png"
 				  alt="GitHub"
 				  className="w-8 md:w-10 aspect-square"
 				/>
@@ -34,7 +34,7 @@ function HomePage() {
 				className="transform hover:scale-110 transition-transform duration-200"
 			  >
 				<img
-				  src="%PUBLIC_URL%/images/linkedin-icon.png"
+				  src="./images/linkedin-icon.png"
 				  alt="LinkedIn"
 				  className="w-8 md:w-10 aspect-square"
 				/>
@@ -46,7 +46,7 @@ function HomePage() {
 				className="transform hover:scale-110 transition-transform duration-200"
 			  >
 				<img
-				  src="%PUBLIC_URL%/images/gmail-icon.png"
+				  src="./images/gmail-icon.png"
 				  alt="Email"
 				  className="w-8 md:w-10 aspect-square"
 				/>
