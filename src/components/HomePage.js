@@ -5,6 +5,7 @@ import Header from "./Header";
 function HomePage() {
 	return (
 	  <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white text-gray-800 font-inter">
+		<title>Marcus Lam - Portfolio</title>
 		<Header />
 		<div className="flex flex-col md:flex-row items-center md:items-start gap-8 py-8 md:py-12 px-4 md:px-6 bg-white/80 backdrop-blur-sm shadow-md h-auto min-h-[500px] max-w-7xl mx-auto mt-4 md:mt-8 rounded-lg">
 		  {/* Left Section: Image and Icons */}

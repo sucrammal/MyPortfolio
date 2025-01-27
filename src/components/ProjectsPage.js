@@ -45,6 +45,7 @@ function ProjectsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white text-gray-800 font-inter">
+      <title>Marcus Lam - Portfolio</title>
       <div className="border-b-4 border-purple-300/40">
         <Header />
       </div>
