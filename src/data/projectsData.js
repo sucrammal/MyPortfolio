@@ -12,7 +12,7 @@ const projectsData = [
       fullContent: (
         <div>
           <section>
-            <img src="/images/aquas/aquasBoat.JPG" alt="Boat" className="w-6/12" />
+            <img src="%PUBLIC_URL%/images/aquas/aquasBoat.JPG" alt="Boat" className="w-6/12" />
             <h3 className="font-semibold mt-4">Premise</h3>
             <ul className="list-disc ml-6">
                 <li>Design a mass-manufacturable aquatic robot/boat that collects environmental data, collect water samples, and disperse research algecide to defeat HABs.</li>
@@ -60,7 +60,7 @@ const projectsData = [
           </section>
           <section>
             <h2 className="font-bold mt-4 text-xl">Overarching Design</h2>
-            <img src="/images/aquas/aquasBD.png" alt="Block Diagram" className="w-7/12" />
+            <img src="%PUBLIC_URL%/images/aquas/aquasBD.png" alt="Block Diagram" className="w-7/12" />
             {/* Design decision table */}
             <table className="min-w-full bg-white border border-gray-400">
                 <thead>
@@ -108,7 +108,7 @@ const projectsData = [
           </section>
           <section>
             <h2 className="font-bold mt-4 text-xl">Electronic systems</h2>
-            <img src="/images/aquas/aquasSchematicF24.png" alt="Circuit Diagram" className="w-7/12" />
+            <img src="%PUBLIC_URL%/images/aquas/aquasSchematicF24.png" alt="Circuit Diagram" className="w-7/12" />
             <ul className="list-disc ml-6">
                 <li>A common 14V power source powers the high-voltage motors and pumps, while a step-down module routes power to the low-voltage control system</li>
                 <li>Arduino, Atlas Scientific EZO sensor array, PWM motor controllers, nifty pre-processing of receiver signals.</li>
@@ -190,7 +190,7 @@ func GetQueue() [10]DataRow {
           </section>
           <section>
             <h2 className="font-bold mt-4 text-xl">CAD Components</h2>
-            <img src="/images/aquas/aquasPumpCad.png" alt="Pump Clamps" className="w-7/12" />
+            <img src="%PUBLIC_URL%/images/aquas/aquasPumpCad.png" alt="Pump Clamps" className="w-7/12" />
             <ul className="list-disc ml-6">
                 <li>Adjustable height mount for dispersal pumps.</li>
                 <li>Heat inserts for screws, CADded using subtraction of pump model.</li>
@@ -221,8 +221,8 @@ func GetQueue() [10]DataRow {
         <div>
           <section>
             <div className="flex sm:flex-row flex-col items-center">
-              <img src="/images/ROAM/roamMyHand.png" alt="PSD_Chart" className="w-6/12" />
-              <img src="/images/ROAM/roamPSD.png" alt="PSD_Chart" className="w-6/12" />
+              <img src="%PUBLIC_URL%/images/ROAM/roamMyHand.png" alt="PSD_Chart" className="w-6/12" />
+              <img src="%PUBLIC_URL%/images/ROAM/roamPSD.png" alt="PSD_Chart" className="w-6/12" />
             </div>
             <h3 className="font-semibold mt-4">Premise</h3>
             <ul className="list-disc ml-6">
@@ -398,8 +398,8 @@ def decompose(time, emg, sampling_rate):
     plt.show()`}
           </SyntaxHighlighter>
           <div className="flex sm:flex-row flex-col items-center">
-            <img src="/images/ROAM/roamMinEffort.png" alt="Min_effort" className="w-6/12" />
-            <img src="/images/ROAM/roamMaxEffort.png" alt="Max_effort" className="w-6/12" />
+            <img src="%PUBLIC_URL%/images/ROAM/roamMinEffort.png" alt="Min_effort" className="w-6/12" />
+            <img src="%PUBLIC_URL%/images/ROAM/roamMaxEffort.png" alt="Max_effort" className="w-6/12" />
           </div>
           <ul className="list-disc ml-6">
                 <li>Computed the PSD and mean frequency of averages across 2 types of trials: rested muscles vs. fatigued muscles. Compared trials sampled at 50 Hz and 200 Hz </li>
@@ -421,11 +421,11 @@ def decompose(time, emg, sampling_rate):
             </ul>
             <br></br>
             <div className="flex sm:flex-row flex-col items-center">
-              <img src="/images/ROAM/roam2slider1.JPG" alt="Min_effort" className="w-3/12" />
-              <img src="/images/ROAM/roam2slider2.JPG" alt="Max_effort" className="w-3/12" />
-              <img src="/images/ROAM/roam3slider.JPG" alt="Max_effort" className="w-3/12" />
+              <img src="%PUBLIC_URL%/images/ROAM/roam2slider1.JPG" alt="Min_effort" className="w-3/12" />
+              <img src="%PUBLIC_URL%/images/ROAM/roam2slider2.JPG" alt="Max_effort" className="w-3/12" />
+              <img src="%PUBLIC_URL%/images/ROAM/roam3slider.JPG" alt="Max_effort" className="w-3/12" />
             </div>
-            <img src="/images/ROAM/roam3sliderCad.png" alt="Min_effort" className="w-6/12" />
+            <img src="%PUBLIC_URL%/images/ROAM/roam3sliderCad.png" alt="Min_effort" className="w-6/12" />
             <br></br>
             <ul className="list-disc ml-6">
                 <li>CAD assembly to check margins and animate joints (sliders). </li>
@@ -716,7 +716,7 @@ def decompose(time, emg, sampling_rate):
       fullContent: (
         <div>
           <section>
-          <img src="/images/vectari/vectari3DKmeans.png" alt="K-means with tSNE" className="w-6/12" />
+          <img src="%PUBLIC_URL%/images/vectari/vectari3DKmeans.png" alt="K-means with tSNE" className="w-6/12" />
           <h3 className="font-semibold mt-4">Premise</h3>
               <ul className="list-disc ml-6">
                   <li>One of two interns place on a team to classify 2 types of bank complaints: digital transactions and mortgages. </li>
@@ -1093,7 +1093,7 @@ for epoch_i in range(epochs):
                 <li>Tracked and averaged the training loss across batches to monitor model performance during training.</li>
               </ul>
               <br></br>
-              <img src="/images/vectari/vectariBERTPerformance.png" alt="BERT-Performance" className="w-6/12" />
+              <img src="%PUBLIC_URL%/images/vectari/vectariBERTPerformance.png" alt="BERT-Performance" className="w-6/12" />
           </section>
           <h2 className="font-bold mt-4 text-xl">Final presentation: {" "}
             <a
@@ -1128,7 +1128,7 @@ for epoch_i in range(epochs):
       fullContent: (
         <div>
          <section>
-          <img src="/images/bb8/bb8CADFull.png" alt="bb8-CAD" className="w-6/12" />
+          <img src="%PUBLIC_URL%/images/bb8/bb8CADFull.png" alt="bb8-CAD" className="w-6/12" />
           <h3 className="font-semibold mt-4">Premise</h3>
               <ul className="list-disc ml-6">
                   <li>Wanted to replicate a to-scale BB8 Robot using an omni-directional internal robot. </li>
@@ -1178,7 +1178,7 @@ for epoch_i in range(epochs):
           <section>
             <h2 className="font-bold mt-4 text-xl">Circuit Design: </h2>
             <br></br>
-            <img src="/images/bb8/bb8Schematic.png" alt="bb8-Schematic" className="w-6/12" />
+            <img src="%PUBLIC_URL%/images/bb8/bb8Schematic.png" alt="bb8-Schematic" className="w-6/12" />
             <br></br>
             <ul className="list-disc ml-6">
                 <li>Sharing a 14V LiPo power source using a voltage step-down.</li>
@@ -1317,7 +1317,7 @@ for epoch_i in range(epochs):
                   <li>Used RMSprop to optimize training, and the simple grid search algorithm to perform HPO.</li>
               </ul>
               <br></br>
-              <img src="images/cnn/cnn_cm1.png" alt="Confusion Matrix" className="w-6/12" />
+              <img src="%PUBLIC_URL%/images/cnn/cnn_cm1.png" alt="Confusion Matrix" className="w-6/12" />
               <ul className="list-disc ml-6">
                   <li>Labels are different diagnoses, benign and dangerous.</li>
               </ul>
