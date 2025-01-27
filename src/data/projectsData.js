@@ -221,8 +221,8 @@ func GetQueue() [10]DataRow {
         <div>
           <section>
             <div className="flex sm:flex-row flex-col items-center">
-              <img src="./images//ROAM/roamMyHand.png" alt="PSD_Chart" className="w-6/12" />
-              <img src="./images//ROAM/roamPSD.png" alt="PSD_Chart" className="w-6/12" />
+              <img src="./images/ROAM/roamMyHand.png" alt="PSD_Chart" className="w-6/12" />
+              <img src="./images/ROAM/roamPSD.png" alt="PSD_Chart" className="w-6/12" />
             </div>
             <h3 className="font-semibold mt-4">Premise</h3>
             <ul className="list-disc ml-6">
