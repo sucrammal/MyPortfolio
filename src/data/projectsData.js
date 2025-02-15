@@ -5,7 +5,7 @@ const projectsData = [
     {
       id: 1,
       title: "Leading CSI AQUAS",
-      shortDescription: "Autonomous Harmful Algal Bloom (HAB) Detection and Eradication Robot",
+      shortDescription: "Autonomous Harmful Algal Bloom (HAB) Detection and Eradication Robot that won an $11K grant",
       tags: ["CAD", "Electronics", "Autonomous", "Arduino", "Environment"],
       image: "./images/aquas/aquas-thumbnail.JPG",
       labels: ["Robotics", "Web Development"],
@@ -457,6 +457,253 @@ def decompose(time, emg, sampling_rate):
     },
     {
       id: 3,
+      title: "GenMD",
+      shortDescription: "Your AI-powered healthcare navigator",
+      tags: ["Typescript", "Chrome API", "OpenAI", "React", "Vite", "HTML", "CSS", "Agents"],
+      image: "./images/genMD/genMDDesign.png",
+      labels: ["Web Development"],
+      fullContent: (
+        <div>
+          <section>
+            <img src="./images/genMD/genMDWhiteboard.jpg" alt="Whiteboard planning" className="w-6/12" />
+              <h3 className="font-semibold mt-4">Premise</h3>
+              <ul className="list-disc ml-6">
+                  <li>Healthcare is hard: especially here in America. As international students living away from home, we've experienced the challenges of navigating the complex healthcare system in the U.S. for the first time.</li>
+                  <li>Vast range of medical services and cryptic insurance docs = difficult to find the best providers for our specific needs, especially those covered by our insurance plans. </li>
+                  <li>GenMD extracts and understands your medical and insurance info, interacts with you to answer your inquiries, and speedup appointment bookings by filling in the booking forms for you. </li>
+                </ul>
+              <h3 className="font-semibold mt-4">Responsibilities</h3>
+              <ul className="list-disc ml-6">
+                  <li>Design agentic feedback loops, LLM tooling, and document extraction with OpenAI LLMs, and design the API requests. </li>
+                  <li>Learn and figure out Chrome extension development dependencies to design overall repo structure. </li>
+                </ul>
+              <h3 className="font-semibold mt-4">Outcomes</h3>
+              <ul className="list-disc ml-6">
+                  <li>Designed emitters and receivers between backend and frontend to send LLM responses to extension and browser DOM. </li>
+                  <li>Designed the main conversation function to maintain and update context and perform tool calling inference.  </li>
+                  <li> Designed functions to extract text from uploaded doc and image files, and the user data schema that the LLM infers and fills. </li>
+                </ul>
+              <h3 className="font-semibold mt-4">Technologies Used</h3>
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                <span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
+                    Typescript
+                </span>
+                <span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
+                  React
+                </span>
+                <span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
+                  Vite
+                </span>
+                <span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
+                  Git
+                </span>
+                <span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
+                  Chrome API
+                </span>
+                <span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
+                  OpenAI
+                </span>
+                <span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
+                  HTML
+                </span>
+                <span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
+                  CSS
+                </span>
+              </div>
+          </section>
+          <section>
+            <br></br>
+            <h2 className="font-bold mt-4 text-xl">Server-Side: Game Room Management</h2>  
+            <SyntaxHighlighter
+                  language="js"
+                  style={solarizedlight} // You can change this to any Prism.js theme
+                  customStyle={{
+                    padding: '1rem',
+                    borderRadius: '0.5rem',
+                    background: '#f5f2f0',
+                    fontSize: '0.8rem',
+                  }}
+                >
+                  {`io.on("connection", (socket) => {
+      console.log("A user connected:", socket.id);
+
+      // Handle user joining a room
+      socket.on("join-room", ({ gameId, nickname, timeLimit, lives }) => {
+          if (!gameRooms[gameId]) {
+              gameRooms[gameId] = {
+                  isStarted: false,
+                  users: [],
+                  locations: [],
+                  currentLetter: "A",
+                  currentTurnIndex: 0,
+                  timeLimit: timeLimit ?? 60, // Default to 60 seconds
+                  timeLeft: timeLimit ?? 60, // Set to the timeLimit
+                  timer: null, // Timer for the current turn
+                  lives: lives ?? 3, // Default to 3 lives
+                  guessedLocations: new Set(),
+                  isSolo: false, // Default to multiplayer
+              };
+          }
+      
+          const room = gameRooms[gameId];
+      
+          // Prevent users from joining if the game has already started
+          if (room.isStarted) {
+              socket.emit("game-started-error", { message: "The game has already started." });
+              return;
+          }
+      
+          // Add the user to the room
+          const user = { id: socket.id, name: nickname, lives: room.lives };
+          room.users.push(user);
+          socket.join(gameId);
+      
+          // ... 
+      
+          io.to(gameId).emit("update-users", room.users);
+          io.to(gameId).emit("update-turn", room.users[room.currentTurnIndex]);
+          io.to(gameId).emit("update-timeLeft", room.timeLeft);
+      });
+  });`}
+            </SyntaxHighlighter>
+            <br></br>
+            <ul className="list-disc ml-6">
+              <li>Manage real-time multiplayer game rooms using websockets, including handling user connections, room creation, and state synchronization. </li>
+              <li>Implemented error handling to prevent users from joining a game that has already started.</li>
+            </ul>
+            <br></br>
+            <h2 className="font-bold mt-4 text-xl">Location Validation Logic</h2>
+            <SyntaxHighlighter
+                  language="js"
+                  style={solarizedlight} // You can change this to any Prism.js theme
+                  customStyle={{
+                    padding: '1rem',
+                    borderRadius: '0.5rem',
+                    background: '#f5f2f0',
+                    fontSize: '0.8rem',
+                  }}
+                >
+                  {`function validateLocation(input, gameId) { 
+    const inputName = input.toLowerCase().trim();
+
+    const keys = Array.from(locationsMap.keys());
+    const { bestMatch } = stringSimilarity.findBestMatch(inputName, keys);
+
+    if (bestMatch.rating > 0.95) { // Threshold for similarity set at 0.95
+        const location = locationsMap.get(bestMatch.target);
+
+        const guessedLocations = gameRooms[gameId]?.guessedLocations;
+        if (guessedLocations?.has(bestMatch.target)) {
+            return { success: false, message: "$bestMatch.target has already been guessed!" };
+        } else {
+            guessedLocations?.add(bestMatch.target);
+            return { success: true, location_data: location };
+        }
+    } else {
+        return { success: false, message: "$input" is not a valid location!" };
+    }
+}`}
+            </SyntaxHighlighter>
+            <br></br>
+            <ul className="list-disc ml-6">
+              <li>The server normalizes the user's input and finds the closest match in the locationsMap using the string-similarity library.</li>
+              <li>If a close-enough match is found, we return the location name. The caller of this function can use locationMap (a hashmap) to access the lat and lon of the location to display on the map.</li>
+            </ul>
+            <br></br>
+            <h2 className="font-bold mt-4 text-xl">Timer and end condition logic</h2>
+            <SyntaxHighlighter
+                  language="js"
+                  style={solarizedlight} // You can change this to any Prism.js theme
+                  customStyle={{
+                    padding: '1rem',
+                    borderRadius: '0.5rem',
+                    background: '#f5f2f0',
+                    fontSize: '0.8rem',
+                  }}
+                >
+                  {`const startTurnTimer = (gameId) => {
+    const room = gameRooms[gameId];
+    if (!room) return;
+
+    if (room.timer) {
+        clearInterval(room.timer);
+        room.timer = null;
+    }
+
+    room.timeLeft = room.timeLimit;
+
+    room.timer = setInterval(() => {
+        io.to(gameId).emit("update-timeLeft", room.timeLeft);
+        room.timeLeft -= 1;
+
+        if (room.timeLeft <= 0) {
+            clearInterval(room.timer);
+
+            const currentTurnUser = room.users[room.currentTurnIndex];
+            if (currentTurnUser.lives > 0) {
+                currentTurnUser.lives -= 1;
+                io.to(gameId).emit("update-users", room.users);
+            }
+
+            const remainingPlayers = room.users.filter(user => user.lives > 0);
+            if (remainingPlayers.length === 1 && !room.isSolo) {
+                const winner = remainingPlayers[0];
+                io.to(gameId).emit("end-game", { 
+                    reason: "Last player standing", 
+                    winner: winner.name, 
+                    totalLocations: room.locations.length,
+                    isSolo: room.isSolo 
+                });
+                return;
+            } else if (room.isSolo && room.users[0].lives <= 0) {
+                io.to(gameId).emit("end-game", { 
+                    reason: "You lost all lives", 
+                    winner: "SOLO", 
+                    totalLocations: room.locations.length,
+                    isSolo: room.isSolo 
+                });
+                return;
+            } 
+            else if (!room.isSolo && room.users.length === 1) {
+                const winner = room.users[0];
+                io.to(gameId).emit("end-game", { 
+                    reason: "Players have disconnected in multiplayer game", 
+                    winner: winner.name, 
+                    totalLocations: room.locations.length,
+                    isSolo: room.isSolo 
+                });
+                return;
+            }
+
+            passTurn(gameId);
+        }
+        io.to(gameId).emit("update-timeLeft", room.timeLeft);
+    }, 1000);
+};    ;`}
+            </SyntaxHighlighter>
+            <br></br>
+            <ul className="list-disc ml-6">
+              <li>Updating and synchronizing timer and lives data across clients, checking end-condition depending on solo/multiplayer. </li>
+              <li>Passes the turn if the current player runs out of time (or if a valid location is guessed). </li>
+            </ul>
+            <br></br>
+          </section>
+          <h2 className="font-bold mt-4 text-xl">Full Github repo here: {" "}
+            <a
+                    href="https://github.com/ldang04/CCS-Game"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
+                    >
+                    Link
+                  </a>
+          </h2> 
+        </div>
+    
+      ),
+    },
+    {
+      id: 4,
       title: "Geochain.io",
       shortDescription: "Multiplayer, geography hot-potato game.",
       tags: ["Javascript", "WebSockets", "React", "Node.js", "Express.js", "HTML", "CSS"],
@@ -707,7 +954,7 @@ def decompose(time, emg, sampling_rate):
       ),
     },
     {
-      id: 4,
+      id: 5,
       title: "Vectari (Now CredytU)",
       shortDescription: "Building LLM, AI classifiers for digital transaction complaints.",
       tags: ["LLMs", "OpenAI", "NLP", "HPO", "BERT", "Python", "Numpy", "pandas", "t-SNE", "RF", "K-means"],
@@ -1119,7 +1366,7 @@ for epoch_i in range(epochs):
       ),
     },
     {
-      id: 5,
+      id: 6,
       title: "Star Wars BB8 Robot",
       shortDescription: "An X-drive robot that goes inside a sphere to look like BB8",
       tags: ["CAD", "Arduino", "RC", "Electronics"],
@@ -1196,7 +1443,7 @@ for epoch_i in range(epochs):
       ),
     },
     {
-      id: 6,
+      id: 7,
       title: "Convolutional Neural Network (CNN) for Skin Cancer Detection",
       shortDescription: "Distinguish benign and harmful skin lesions",
       tags: ["python", "ML", "CNN", "CV", "HPO", "Flask", "TF", "Keras", "numpy", "pandas"],
