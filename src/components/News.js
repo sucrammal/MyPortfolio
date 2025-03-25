@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Header from "../components/Header";
 import { Search } from "lucide-react";
-import { useNavigate } from 'react-router-dom'; // For navigation
+// import { useNavigate } from 'react-router-dom'; // For navigation
 import newsData from '../data/newsData'; // Import all news entry data
 
 function News() {
