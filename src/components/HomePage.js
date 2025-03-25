@@ -41,7 +41,7 @@ function HomePage() {
 				/>
 			  </a>
 			  <a
-				href="mailto:sml2286@columbia.edu.hk"
+				href="mailto:sml2286@columbia.edu"
 				target="_blank"
 				rel="noopener noreferrer"
 				className="transform hover:scale-110 transition-transform duration-200"
@@ -106,7 +106,7 @@ function HomePage() {
 		{/* Latest News Section */}
 		<section className="bg-gradient-to-r from-purple-500/10 to-purple-600/5 backdrop-blur-sm border-t border-purple-100/20 py-4 md:py-6 mt-8 md:mt-12">
 		  <p className="text-center text-sm md:text-base text-gray-700 font-medium max-w-4xl mx-auto px-4">
-			Latest news: <strong className="text-purple-800">[2024/12]</strong> Closed out the semester with a CSI AQUAS wrap up, putting together sponsorship materials over break!
+			Latest news: <strong className="text-purple-800">[2025/3]</strong> Finished the new environmental sensor buoy subsystem for AQUAS along with testing and deployment procedures. Will be moving onto designing the water dispersal system! 🌊
 		  </p>
 		</section>
 	  </div>

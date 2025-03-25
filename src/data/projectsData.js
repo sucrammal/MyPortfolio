@@ -5,8 +5,8 @@ const projectsData = [
     {
       id: 1,
       title: "Leading CSI AQUAS",
-      shortDescription: "Autonomous Harmful Algal Bloom (HAB) Detection and Eradication Robot that won an $11K grant",
-      tags: ["CAD", "Electronics", "Autonomous", "Arduino", "Environment"],
+      shortDescription: "Autonomous Harmful Algal Bloom (HAB) Detection and Eradication Robot that won an $11K grant, working with NASA PACE, NYC Parks and Rec, and international governments.",
+      tags: ["CAD", "Electronics", "Autonomous", "Arduino", "Environment", "Linux", "Go"],
       image: "./images/aquas/aquas-thumbnail.JPG",
       labels: ["Robotics", "Web Development"],
       fullContent: (
@@ -29,14 +29,15 @@ const projectsData = [
               </ul>
             <h3 className="font-semibold mt-4">Responsibilities</h3>
             <ul className="list-disc ml-6">
-                <li>Make high-level design choices for the robot to fulfill overarching goals by considering the flow of data channels. </li>
+                <li>Make high-level design choices for the robot to fulfill overarching goals by considering the flow of data channels. Design tasks and specs for hardware, software, and electronics teams to test and integrate. </li>
                 <li>Coordinate with vehicle design team to implement internal electronics and instruments mounted outside the vehicle given their space constraints. </li>
                 <li>Lead recruitment and training of new members on hardware, software, and electronics fundamentals. Manage and track weekly tasks. </li>
               </ul>
             <h3 className="font-semibold mt-4">Outcomes</h3>
             <ul className="list-disc ml-6">
-                <li>Designed and tested low and high voltage systems to control the dispersal pumps and drivetrain motors using an RC receiver, Arduino, and a flight controller. </li>
-                <li>Lead the implementation of an environmental data collection pipeline to collect and send data to a research database.</li>
+                <li>Designed on-board high-voltage and low-voltage electronics, including the RC transceiver, environmental sensor array, motor control, water dispersal pumps, and safety components like a kill-switch, fuse box, and water-leakage sensors. </li>
+                <li>Lead the implementation of an environmental data collection pipeline to collect and send data to a research database via a sensor buoy. </li>
+                <li>Designed the sensor reading database schema according to our research PI's specifications and implemented in mySQL. </li>
                 <li>CADed various components of the boat including a sensor buoy and height-adjustable bilge pump mounting clamps. </li>
               </ul>
             <h3 className="font-semibold mt-4">Technologies Used</h3>
@@ -474,8 +475,8 @@ def decompose(time, emg, sampling_rate):
                 </ul>
               <h3 className="font-semibold mt-4">Responsibilities</h3>
               <ul className="list-disc ml-6">
-                  <li>Design agentic feedback loops, LLM tooling, and document extraction with OpenAI LLMs, and design the API requests. </li>
-                  <li>Learn and figure out Chrome extension development dependencies to design overall repo structure. </li>
+                  <li>Design basic agentic feedback loops, LLM tooling, and document extraction with OpenAI LLMs, and design the API requests. </li>
+                  <li>Learn and add Chrome extension development dependencies to design overall project structure and "backend" emissions. </li>
                 </ul>
               <h3 className="font-semibold mt-4">Outcomes</h3>
               <ul className="list-disc ml-6">
@@ -513,7 +514,7 @@ def decompose(time, emg, sampling_rate):
           </section>
           <section>
             <br></br>
-            <h2 className="font-bold mt-4 text-xl">Server-Side: Game Room Management</h2>  
+            <h2 className="font-bold mt-4 text-xl">LLM calls and tooling</h2>  
             <SyntaxHighlighter
                   language="js"
                   style={solarizedlight} // You can change this to any Prism.js theme
@@ -524,52 +525,50 @@ def decompose(time, emg, sampling_rate):
                     fontSize: '0.8rem',
                   }}
                 >
-                  {`io.on("connection", (socket) => {
-      console.log("A user connected:", socket.id);
-
-      // Handle user joining a room
-      socket.on("join-room", ({ gameId, nickname, timeLimit, lives }) => {
-          if (!gameRooms[gameId]) {
-              gameRooms[gameId] = {
-                  isStarted: false,
-                  users: [],
-                  locations: [],
-                  currentLetter: "A",
-                  currentTurnIndex: 0,
-                  timeLimit: timeLimit ?? 60, // Default to 60 seconds
-                  timeLeft: timeLimit ?? 60, // Set to the timeLimit
-                  timer: null, // Timer for the current turn
-                  lives: lives ?? 3, // Default to 3 lives
-                  guessedLocations: new Set(),
-                  isSolo: false, // Default to multiplayer
-              };
-          }
-      
-          const room = gameRooms[gameId];
-      
-          // Prevent users from joining if the game has already started
-          if (room.isStarted) {
-              socket.emit("game-started-error", { message: "The game has already started." });
-              return;
-          }
-      
-          // Add the user to the room
-          const user = { id: socket.id, name: nickname, lives: room.lives };
-          room.users.push(user);
-          socket.join(gameId);
-      
-          // ... 
-      
-          io.to(gameId).emit("update-users", room.users);
-          io.to(gameId).emit("update-turn", room.users[room.currentTurnIndex]);
-          io.to(gameId).emit("update-timeLeft", room.timeLeft);
+                  {`export async function toolInference(prompt: string) {
+    try {
+      // Get the response from GPT-4o with function call inference
+      const response = await openai.chat.completions.create({
+        model: "gpt-4o",
+        messages: [{ role: "user", content: prompt }],
+        temperature: 0,
+        functions: tools, // Include the predefined function definitions
+        function_call: "auto", // Let GPT decide on function to call
       });
-  });`}
+  
+      // Get the top inferred tool call
+      console.log("Response: " + JSON.stringify(response));
+      const toolCall = response.choices[0]?.message.function_call?.name;
+      const toolArgs = response.choices[0]?.message.function_call?.arguments;
+      
+      if (!toolCall || !toolArgs) {
+        throw new Error("No valid tool call or arguments found in response.");
+      }
+      
+      // Route the request to the appropriate function
+      if (toolCall === "emergency_services") {
+        return await emergency_services();
+      } else if (toolCall === "book_appointment") {
+        const { specialty, areaOfConcern } = JSON.parse(toolArgs);
+        return await book_appointment(specialty, areaOfConcern, location, insurance);
+      } else if (toolCall == "general_health_inquiry"){
+        return await general_health_inquiry(prompt);
+      } else {
+        throw new Error("Unrecognized function call.");
+      }
+    } catch (error) {
+      console.error("Error during tool inference:", error);
+      throw error;
+    }
+}
+
+`}
             </SyntaxHighlighter>
             <br></br>
             <ul className="list-disc ml-6">
-              <li>Manage real-time multiplayer game rooms using websockets, including handling user connections, room creation, and state synchronization. </li>
-              <li>Implemented error handling to prevent users from joining a game that has already started.</li>
+              <li>OpenAI's function-calling mechanism to automate healthcare tasks. </li>
+              <li>Dynamically parses AI-generated function calls and invokes the right service.</li>
+              <li>Ensures error handling for unrecognized function calls.</li>
             </ul>
             <br></br>
             <h2 className="font-bold mt-4 text-xl">Location Validation Logic</h2>
@@ -583,26 +582,38 @@ def decompose(time, emg, sampling_rate):
                     fontSize: '0.8rem',
                   }}
                 >
-                  {`function validateLocation(input, gameId) { 
-    const inputName = input.toLowerCase().trim();
+                  {`import { fetchOpenAI, toolInference } from "./api/fetchOpenAI.ts";
 
-    const keys = Array.from(locationsMap.keys());
-    const { bestMatch } = stringSimilarity.findBestMatch(inputName, keys);
+chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+  if (message.action === "saveUserData") {
+    const userData = message.data;
+    console.log("Received user data:", userData);
 
-    if (bestMatch.rating > 0.95) { // Threshold for similarity set at 0.95
-        const location = locationsMap.get(bestMatch.target);
+    // Call AI to find an appointment based on user info
+    toolInference("I need to find a {userData.specialty} in {userData.location} who accepts {userData.insurance}.")
+      .then(appointment => {
+        const { message: msg, search_prompt } = appointment;
 
-        const guessedLocations = gameRooms[gameId]?.guessedLocations;
-        if (guessedLocations?.has(bestMatch.target)) {
-            return { success: false, message: "$bestMatch.target has already been guessed!" };
-        } else {
-            guessedLocations?.add(bestMatch.target);
-            return { success: true, location_data: location };
-        }
-    } else {
-        return { success: false, message: "$input" is not a valid location!" };
-    }
-}`}
+        // Send appointment details to the active tab
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+          if (tabs[0]?.id) {
+            chrome.tabs.sendMessage(tabs[0].id, {
+              action: "sendMessageAndSearchPrompt",
+              data: { msg, search_prompt },
+            }, (response) => {
+              console.log("Response from content script:", response);
+            });
+          }
+        });
+      })
+      .catch(error => console.error("Error fetching appointment:", error));
+
+    sendResponse({ status: "success", message: "User data processed successfully!" });
+  }
+  
+  return true; // Enables async response handling
+});
+`}
             </SyntaxHighlighter>
             <br></br>
             <ul className="list-disc ml-6">
@@ -857,91 +868,15 @@ def decompose(time, emg, sampling_rate):
             </SyntaxHighlighter>
             <br></br>
             <ul className="list-disc ml-6">
-              <li>The server normalizes the user's input and finds the closest match in the locationsMap using the string-similarity library.</li>
-              <li>If a close-enough match is found, we return the location name. The caller of this function can use locationMap (a hashmap) to access the lat and lon of the location to display on the map.</li>
-            </ul>
-            <br></br>
-            <h2 className="font-bold mt-4 text-xl">Timer and end condition logic</h2>
-            <SyntaxHighlighter
-                  language="js"
-                  style={solarizedlight} // You can change this to any Prism.js theme
-                  customStyle={{
-                    padding: '1rem',
-                    borderRadius: '0.5rem',
-                    background: '#f5f2f0',
-                    fontSize: '0.8rem',
-                  }}
-                >
-                  {`const startTurnTimer = (gameId) => {
-    const room = gameRooms[gameId];
-    if (!room) return;
-
-    if (room.timer) {
-        clearInterval(room.timer);
-        room.timer = null;
-    }
-
-    room.timeLeft = room.timeLimit;
-
-    room.timer = setInterval(() => {
-        io.to(gameId).emit("update-timeLeft", room.timeLeft);
-        room.timeLeft -= 1;
-
-        if (room.timeLeft <= 0) {
-            clearInterval(room.timer);
-
-            const currentTurnUser = room.users[room.currentTurnIndex];
-            if (currentTurnUser.lives > 0) {
-                currentTurnUser.lives -= 1;
-                io.to(gameId).emit("update-users", room.users);
-            }
-
-            const remainingPlayers = room.users.filter(user => user.lives > 0);
-            if (remainingPlayers.length === 1 && !room.isSolo) {
-                const winner = remainingPlayers[0];
-                io.to(gameId).emit("end-game", { 
-                    reason: "Last player standing", 
-                    winner: winner.name, 
-                    totalLocations: room.locations.length,
-                    isSolo: room.isSolo 
-                });
-                return;
-            } else if (room.isSolo && room.users[0].lives <= 0) {
-                io.to(gameId).emit("end-game", { 
-                    reason: "You lost all lives", 
-                    winner: "SOLO", 
-                    totalLocations: room.locations.length,
-                    isSolo: room.isSolo 
-                });
-                return;
-            } 
-            else if (!room.isSolo && room.users.length === 1) {
-                const winner = room.users[0];
-                io.to(gameId).emit("end-game", { 
-                    reason: "Players have disconnected in multiplayer game", 
-                    winner: winner.name, 
-                    totalLocations: room.locations.length,
-                    isSolo: room.isSolo 
-                });
-                return;
-            }
-
-            passTurn(gameId);
-        }
-        io.to(gameId).emit("update-timeLeft", room.timeLeft);
-    }, 1000);
-};    ;`}
-            </SyntaxHighlighter>
-            <br></br>
-            <ul className="list-disc ml-6">
-              <li>Updating and synchronizing timer and lives data across clients, checking end-condition depending on solo/multiplayer. </li>
-              <li>Passes the turn if the current player runs out of time (or if a valid location is guessed). </li>
+              <li>Uses toolInference() to dynamically call OpenAI's function-based reasoning.</li>
+              <li>Sends AI-generated recommendations to the active tab via chrome.tabs.sendMessage()</li>
+              <li>Asynchronous handling - Ensures smooth background execution without blocking responses.</li>
             </ul>
             <br></br>
           </section>
           <h2 className="font-bold mt-4 text-xl">Full Github repo here: {" "}
             <a
-                    href="https://github.com/ldang04/CCS-Game"
+                    href="https://github.com/sucrammal/GenMD"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
