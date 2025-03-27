@@ -5,7 +5,7 @@ const projectsData = [
     {
       id: 1,
       title: "Leading CSI AQUAS",
-      shortDescription: "Autonomous Harmful Algal Bloom (HAB) Detection and Eradication Robot that won an $11K grant, working with NASA PACE, NYC Parks and Rec, and international governments.",
+      shortDescription: "Autonomous Harmful Algal Bloom (HAB) Detection and Eradication Robot that won an $11K grant, working with NASA, NYC, and international governments.",
       tags: ["CAD", "Electronics", "Autonomous", "Arduino", "Environment", "Linux", "Go"],
       image: "./images/aquas/aquas-thumbnail.JPG",
       labels: ["Robotics", "Web Development"],
