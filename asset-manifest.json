@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "https://sucrammal.github.io/MyPortfolio/static/css/main.831d8356.css",
-    "main.js": "https://sucrammal.github.io/MyPortfolio/static/js/main.225c469d.js",
+    "main.css": "https://sucrammal.github.io/MyPortfolio/static/css/main.178173aa.css",
+    "main.js": "https://sucrammal.github.io/MyPortfolio/static/js/main.0e5d1acd.js",
     "static/js/453.ace21015.chunk.js": "https://sucrammal.github.io/MyPortfolio/static/js/453.ace21015.chunk.js",
     "index.html": "https://sucrammal.github.io/MyPortfolio/index.html",
-    "main.831d8356.css.map": "https://sucrammal.github.io/MyPortfolio/static/css/main.831d8356.css.map",
-    "main.225c469d.js.map": "https://sucrammal.github.io/MyPortfolio/static/js/main.225c469d.js.map",
+    "main.178173aa.css.map": "https://sucrammal.github.io/MyPortfolio/static/css/main.178173aa.css.map",
+    "main.0e5d1acd.js.map": "https://sucrammal.github.io/MyPortfolio/static/js/main.0e5d1acd.js.map",
     "453.ace21015.chunk.js.map": "https://sucrammal.github.io/MyPortfolio/static/js/453.ace21015.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.831d8356.css",
-    "static/js/main.225c469d.js"
+    "static/css/main.178173aa.css",
+    "static/js/main.0e5d1acd.js"
   ]
 }
