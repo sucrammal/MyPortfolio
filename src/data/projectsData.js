@@ -341,12 +341,15 @@ func GetQueue() [10]DataRow {
 			"GR00T",
 			"GPU",
 		],
-		image: "./images/oddishWater/oddishWaterLayout.PNG",
+		image: "./images/oddishWater/oddishWaterLayout.png",
 		labels: ["Robotics", "Web Development"],
 		fullContent: (
 			<div>
 				<section>
-					<video className="w-full rounded-lg shadow-lg" controls>
+					<video
+						className="w-full rounded-lg shadow-lg oddish-video"
+						controls
+					>
 						<source
 							src="./images/oddishWater/oddishWaterDemo.mp4"
 							type="video/mp4"
