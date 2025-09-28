@@ -61,45 +61,67 @@ function HomePage() {
 						Hello! I'm Marcus. 👋
 					</h1>
 					<p className="mt-4 md:mt-6 text-base md:text-lg leading-relaxed text-gray-700">
-						From an autonomous robot to detect and clear harmful
-						algal blooms, to NLP and CV explorations, and to online
+						From AQUAS - an autonomous robot to detect and clear
+						harmful algal blooms, to CV explorations, and to online
 						multiplayer games, I try to inject my passion for
-						building into three main disciplines: data science,
-						robotics, and web development.
+						building into three main disciplines: robotics, data
+						science, and web dev.
 						<br />
 						<br />
 						I'm a Sophomore studying Computer Engineering at
-						Columbia University, and my various projects come from
-						the Columbia Space Initiative{" "}
-						<a
-							href="https://columbiaspace.org/"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
-						>
-							(CSI)
-						</a>
-						, one of campus's largest engineering clubs where I lead
-						a team of my own, the Robotic Manipulation and Mobility{" "}
-						<a
-							href="https://roam.me.columbia.edu/"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
-						>
-							(ROAM)
-						</a>{" "}
-						Research Lab where I work under{" "}
-						<a
-							href="https://avachen.net/"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
-						>
-							Ava Chen
-						</a>{" "}
-						on the MyHandSCI project, and my own spare time. Welcome
-						to my portfolio!
+						Columbia University. My experience comes from:
+					</p>
+					<ul className="mt-2 ml-6 text-base md:text-lg leading-relaxed text-gray-700 space-y-1 list-disc">
+						<li>
+							CV engineering @ Gambit Robotics, a startup by
+							Nicole Mafeo and Eliot Horowitz
+						</li>
+						<li>
+							Columbia University Robotics Club{" "}
+							<a
+								href="https://www.columbiarobotics.club/"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
+							>
+								(CURC)
+							</a>
+							, where I lead a team building AQUAS
+						</li>
+						<li>
+							Robotic Manipulation and Mobility{" "}
+							<a
+								href="https://roam.me.columbia.edu/"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
+							>
+								(ROAM)
+							</a>{" "}
+							Lab with{" "}
+							<a
+								href="https://avachen.net/"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
+							>
+								Ava Chen
+							</a>{" "}
+							and{" "}
+							<a
+								href="https://runshengwang.com/"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
+							>
+								Runsheng Wang
+							</a>{" "}
+							working on the MyHandSCI and ChatEMG projects
+						</li>
+						<li>Personal projects</li>
+					</ul>
+					<p className="mt-3 text-base md:text-lg leading-relaxed text-gray-700">
+						Welcome to my portfolio!
 					</p>
 					<div className="flex justify-center md:justify-start">
 						<Link to="/projects">
@@ -115,10 +137,10 @@ function HomePage() {
 			<section className="bg-teal-50/50 backdrop-blur-sm border-t border-teal-100/20 py-4 md:py-6 mt-8 md:mt-12">
 				<p className="text-center text-sm md:text-base text-gray-700 font-medium max-w-4xl mx-auto px-4">
 					Latest news:{" "}
-					<strong className="text-teal-700">[2025/3]</strong> Finished
-					the new environmental sensor buoy subsystem for AQUAS along
-					with testing and deployment procedures. Will be moving onto
-					designing the water dispersal system! 🌊
+					<strong className="text-teal-700">[2025/8]</strong> Finished
+					and deployed AQUAS and the V1 Water Sampler in Morningside
+					Pond, and collecting data via our sensor buoy for the first
+					time! 🌊
 				</p>
 			</section>
 		</div>
