@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "../components/Header";
 import { Search } from "lucide-react";
-import projectsData from "../data/projectsData"; // Import all project entry data
+import projectsData from "../content/projects"; // Import all project entry data
 
 function ProjectsPage() {
 	const [selectedCategory, setSelectedCategory] = useState("All");
