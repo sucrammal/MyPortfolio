@@ -15,7 +15,7 @@ const oddishWaterProject = {
 		"GR00T",
 		"GPU",
 	],
-	image: "./images/oddishWater/oddishWaterLayout.png",
+	image: "/images/oddishWater/oddishWaterLayout.png",
 	labels: ["Robotics", "Web Development"],
 	fullContent: (
 		<div>
@@ -25,7 +25,7 @@ const oddishWaterProject = {
 					controls
 				>
 					<source
-						src="./images/oddishWater/oddishWaterDemo.mp4"
+						src="/images/oddishWater/oddishWaterDemo.mp4"
 						type="video/mp4"
 					/>
 					Your browser does not support the video tag.

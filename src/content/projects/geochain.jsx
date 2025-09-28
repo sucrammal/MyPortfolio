@@ -13,14 +13,14 @@ const geochainProject = {
 		"HTML",
 		"CSS",
 	],
-	image: "./images/geochain/geochainGameRoom.png",
+	image: "/images/geochain/geochainGameRoom.png",
 	labels: ["Web Development"],
 	fullContent: (
 		<div>
 			<section>
 				<video className="w-full rounded-lg shadow-lg" controls>
 					<source
-						src="./images//geochain/geochainDemoVid.mp4"
+						src="/images/geochain/geochainDemoVid.mp4"
 						type="video/mp4"
 					/>
 					Your browser does not support the video tag.

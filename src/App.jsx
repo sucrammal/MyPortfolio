@@ -1,7 +1,7 @@
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './components/HomePage';
-import ProjectsPage from './components/ProjectsPage';
-import News from './components/News';
+import HomePage from './components/HomePage.jsx';
+import ProjectsPage from './components/ProjectsPage.jsx';
+import News from './components/News.jsx';
 
 function App() {
   return (

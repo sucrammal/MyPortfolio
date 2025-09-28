@@ -51,3 +51,9 @@ jspm_packages/
 # Ignore cache directories
 .cache/
 .temp/
+# Vite
+dist/
+*.local
+
+# TypeScript
+*.tsbuildinfo

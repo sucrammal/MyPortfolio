@@ -6,13 +6,13 @@ const bb8Project = {
 	shortDescription:
 		"An X-drive robot that goes inside a sphere to look like BB8",
 	tags: ["CAD", "Arduino", "RC", "Electronics"],
-	image: "./images/bb8/bb8CAD.png",
+	image: "/images/bb8/bb8CAD.png",
 	labels: ["Robotics"],
 	fullContent: (
 		<div>
 			<section>
 				<img
-					src="./images//bb8/bb8CADFull.png"
+					src="/images/bb8/bb8CADFull.png"
 					alt="bb8-CAD"
 					className="w-6/12"
 				/>
@@ -78,7 +78,7 @@ const bb8Project = {
 				<br></br>
 				<video className="w-full rounded-lg shadow-lg" controls>
 					<source
-						src="./images//bb8/bb8Suspension.mp4"
+						src="/images/bb8/bb8Suspension.mp4"
 						type="video/mp4"
 					/>
 				</video>
@@ -104,7 +104,7 @@ const bb8Project = {
 				<h2 className="font-bold mt-4 text-xl">Circuit Design: </h2>
 				<br></br>
 				<img
-					src="./images//bb8/bb8Schematic.png"
+					src="/images/bb8/bb8Schematic.png"
 					alt="bb8-Schematic"
 					className="w-6/12"
 				/>
@@ -125,7 +125,7 @@ const bb8Project = {
 				<h2 className="font-bold mt-4 text-xl">Demo: </h2>
 				<br></br>
 				<video className="w-full rounded-lg shadow-lg" controls>
-					<source src="./images//bb8/bb8Drive.mp4" type="video/mp4" />
+					<source src="/images/bb8/bb8Drive.mp4" type="video/mp4" />
 				</video>
 			</section>
 		</div>

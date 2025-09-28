@@ -14,14 +14,14 @@ const robotLearningProject = {
 		"Deep-Learning",
 		"Python",
 	],
-	image: "./images/robotLearning/robotLearningThumbnail.png",
+	image: "/images/robotLearning/robotLearningThumbnail.png",
 	labels: ["Robotics"],
 	fullContent: (
 		<div>
 			<section>
 				<video className="w-full rounded-lg shadow-lg" controls>
 					<source
-						src="./images/robotLearning/robotLearningPushT.mp4"
+						src="/images/robotLearning/robotLearningPushT.mp4"
 						type="video/mp4"
 					/>
 					Your browser does not support the video tag.

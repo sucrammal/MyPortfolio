@@ -160,7 +160,7 @@ const cnnProject = {
 				</ul>
 				<br></br>
 				<img
-					src="./images//cnn/cnn_cm1.png"
+					src="/images/cnn/cnn_cm1.png"
 					alt="Confusion Matrix"
 					className="w-6/12"
 				/>

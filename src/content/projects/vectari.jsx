@@ -18,13 +18,13 @@ const vectariProject = {
 		"RF",
 		"K-means",
 	],
-	image: "./images/vectari/vectari3DKmeans.png",
+	image: "/images/vectari/vectari3DKmeans.png",
 	labels: ["Data Science"],
 	fullContent: (
 		<div>
 			<section>
 				<img
-					src="./images//vectari/vectari3DKmeans.png"
+					src="/images/vectari/vectari3DKmeans.png"
 					alt="K-means with tSNE"
 					className="w-6/12"
 				/>
@@ -528,7 +528,7 @@ for epoch_i in range(epochs):
 				</ul>
 				<br></br>
 				<img
-					src="./images//vectari/vectariBERTPerformance.png"
+					src="/images/vectari/vectariBERTPerformance.png"
 					alt="BERT-Performance"
 					className="w-6/12"
 				/>

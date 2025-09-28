@@ -14,19 +14,19 @@ const roamLabProject = {
 		"signals",
 		"CAD",
 	],
-	image: "./images/ROAM/roamMyHandThumbnail.png",
+	image: "/images/ROAM/roamMyHandThumbnail.png",
 	labels: ["Robotics", "Data Science"],
 	fullContent: (
 		<div>
 			<section>
 				<div className="flex sm:flex-row flex-col items-center">
 					<img
-						src="./images/ROAM/roamMyHand.png"
+						src="/images/ROAM/roamMyHand.png"
 						alt="PSD_Chart"
 						className="w-6/12"
 					/>
 					<img
-						src="./images/ROAM/roamPSD.png"
+						src="/images/ROAM/roamPSD.png"
 						alt="PSD_Chart"
 						className="w-6/12"
 					/>
@@ -253,12 +253,12 @@ def decompose(time, emg, sampling_rate):
 				</SyntaxHighlighter>
 				<div className="flex sm:flex-row flex-col items-center">
 					<img
-						src="./images//ROAM/roamMinEffort.png"
+						src="/images/ROAM/roamMinEffort.png"
 						alt="Min_effort"
 						className="w-6/12"
 					/>
 					<img
-						src="./images//ROAM/roamMaxEffort.png"
+						src="/images/ROAM/roamMaxEffort.png"
 						alt="Max_effort"
 						className="w-6/12"
 					/>
@@ -283,7 +283,7 @@ def decompose(time, emg, sampling_rate):
 				</h2>
 				<video className="w-full rounded-lg shadow-lg" controls>
 					<source
-						src="./images//ROAM/roamPulleyVideo.mp4"
+						src="/images/ROAM/roamPulleyVideo.mp4"
 						type="video/mp4"
 					/>
 					Your browser does not support the video tag.
@@ -309,23 +309,23 @@ def decompose(time, emg, sampling_rate):
 				<br></br>
 				<div className="flex sm:flex-row flex-col items-center">
 					<img
-						src="./images//ROAM/roam2slider1.JPG"
+						src="/images/ROAM/roam2slider1.JPG"
 						alt="Min_effort"
 						className="w-3/12"
 					/>
 					<img
-						src="./images//ROAM/roam2slider2.JPG"
+						src="/images/ROAM/roam2slider2.JPG"
 						alt="Max_effort"
 						className="w-3/12"
 					/>
 					<img
-						src="./images//ROAM/roam3slider.JPG"
+						src="/images/ROAM/roam3slider.JPG"
 						alt="Max_effort"
 						className="w-3/12"
 					/>
 				</div>
 				<img
-					src="./images//ROAM/roam3sliderCad.png"
+					src="/images/ROAM/roam3sliderCad.png"
 					alt="Min_effort"
 					className="w-6/12"
 				/>

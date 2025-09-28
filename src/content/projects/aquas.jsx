@@ -15,7 +15,7 @@ const aquasProject = {
 		"Go",
 		"ESP32",
 	],
-	image: "./images/aquas/aquas-thumbnail.JPG",
+	image: "/images/aquas/aquas-thumbnail.JPG",
 	labels: ["Robotics", "Web Development"],
 	fullContent: (
 		<div>
@@ -46,7 +46,7 @@ const aquasProject = {
 			<section>
 				<h2 className="font-bold mt-4 text-xl">Overarching Design</h2>
 				<img
-					src="./images/aquas/aquasBD.png"
+					src="/images/aquas/aquasBD.png"
 					alt="Block Diagram"
 					className="w-7/12"
 				/>
@@ -107,7 +107,7 @@ const aquasProject = {
 			<section>
 				<h2 className="font-bold mt-4 text-xl">V1 System</h2>
 				<img
-					src="./images/aquas/aquasBoat_v1.JPG"
+					src="/images/aquas/aquasBoat_v1.JPG"
 					alt="AQUAS V1 Boat"
 					className="w-6/12"
 				/>
@@ -184,7 +184,7 @@ const aquasProject = {
 
 				<video width="640" height="480" controls className="mt-4">
 					<source
-						src="./images/aquas/aquasAutonShortened.mp4"
+						src="/images/aquas/aquasAutonShortened.mp4"
 						type="video/mp4"
 					/>
 					Your browser does not support the video tag.
@@ -364,7 +364,7 @@ void sleepStep() {
 			<section>
 				<h2 className="font-bold mt-4 text-xl">V0 System</h2>
 				<img
-					src="./images/aquas/aquasBoat_v0.JPG"
+					src="/images/aquas/aquasBoat_v0.JPG"
 					alt="AQUAS V0 Boat"
 					className="w-6/12"
 				/>
@@ -435,7 +435,7 @@ void sleepStep() {
 
 				<h3 className="font-semibold mt-4">Electronic systems</h3>
 				<img
-					src="./images/aquas/aquasSchematicF24.png"
+					src="/images/aquas/aquasSchematicF24.png"
 					alt="Circuit Diagram"
 					className="w-7/12"
 				/>
@@ -553,7 +553,7 @@ func GetQueue() [10]DataRow {
 
 				<h3 className="font-semibold mt-4">CAD Components</h3>
 				<img
-					src="./images/aquas/aquasPumpCad.png"
+					src="/images/aquas/aquasPumpCad.png"
 					alt="Pump Clamps"
 					className="w-7/12"
 				/>

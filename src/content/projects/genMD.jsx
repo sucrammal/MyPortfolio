@@ -14,13 +14,13 @@ const genMDProject = {
 		"CSS",
 		"Agents",
 	],
-	image: "./images/genMD/genMDDesign.png",
+	image: "/images/genMD/genMDDesign.png",
 	labels: ["Web Development"],
 	fullContent: (
 		<div>
 			<section>
 				<img
-					src="./images/genMD/genMDWhiteboard.jpg"
+					src="/images/genMD/genMDWhiteboard.jpg"
 					alt="Whiteboard planning"
 					className="w-6/12"
 				/>
