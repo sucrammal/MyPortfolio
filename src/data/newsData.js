@@ -28,7 +28,7 @@ const newsData = [
                 href="https://www.firstresonance.io/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
+                className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
               >
               First Resonance 
           </a>

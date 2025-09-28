@@ -38,7 +38,7 @@ const projectsData = [
 								href="https://www.thegoes-gomeslab.org/"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
+								className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
 							>
 								Goes-Gomes lab
 							</a>{" "}
@@ -133,7 +133,7 @@ const projectsData = [
 						</thead>
 						<tbody>
 							{/* Row 1 */}
-							<tr className="hover:bg-purple-50 transition-colors">
+							<tr className="hover:bg-teal-50 transition-colors">
 								<td className="px-6 py-4 text-sm text-gray-600 border-b border-gray-400">
 									Control flexibility
 								</td>
@@ -145,7 +145,7 @@ const projectsData = [
 							</tr>
 
 							{/* Row 2 */}
-							<tr className="hover:bg-purple-50 transition-colors">
+							<tr className="hover:bg-teal-50 transition-colors">
 								<td className="px-6 py-4 text-sm text-gray-600 border-b border-gray-400">
 									Data durability
 								</td>
@@ -157,7 +157,7 @@ const projectsData = [
 							</tr>
 
 							{/* Row 3 */}
-							<tr className="hover:bg-purple-50 transition-colors">
+							<tr className="hover:bg-teal-50 transition-colors">
 								<td className="px-6 py-4 text-sm text-gray-600 border-b border-gray-400">
 									Mass manufacturable
 								</td>
@@ -319,7 +319,7 @@ func GetQueue() [10]DataRow {
 						href="https://drive.google.com/drive/folders/1ryR1xIvl53I18dHhbSsgC-XQLU9zjmJD?usp=sharing"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
+						className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
 					>
 						Link
 					</a>
@@ -604,7 +604,7 @@ python lerobot/scripts/control_robot.py \
 						href="https://github.com/alexakayman/OddishWater"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
+						className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
 					>
 						Link
 					</a>
@@ -959,7 +959,7 @@ for epoch in range(num_epochs):
 						href="https://github.com/sucrammal/robotLearning"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
+						className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
 					>
 						Link
 					</a>
@@ -1317,7 +1317,7 @@ def decompose(time, emg, sampling_rate):
 						href="https://docs.google.com/document/d/1r1BxkqsloVJc1AsoWS4szQCYteCuOGAJ/edit?usp=sharing&ouid=102824943698376675022&rtpof=true&sd=true"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
+						className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
 					>
 						Link
 					</a>
@@ -1328,7 +1328,7 @@ def decompose(time, emg, sampling_rate):
 						href="https://drive.google.com/drive/folders/16aeht0bvV5tNa-OCeqyF9rbCM6SBzODY?usp=sharing"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
+						className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
 					>
 						Link
 					</a>
@@ -1664,7 +1664,7 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
 						href="https://github.com/ldang04/CCS-Game"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
+						className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
 					>
 						Link
 					</a>
@@ -1891,7 +1891,7 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
 						href="https://github.com/sucrammal/GenMD"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
+						className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
 					>
 						Link
 					</a>
@@ -2445,7 +2445,7 @@ for epoch_i in range(epochs):
 						href="https://docs.google.com/presentation/d/1am6Zv3sxWqALaUhsjy8YzaZsJKurehfETtIDXvgW8Ss/edit?usp=sharing"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
+						className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
 					>
 						Link
 					</a>
@@ -2456,7 +2456,7 @@ for epoch_i in range(epochs):
 						href="https://docs.google.com/document/d/1sDD8cvhMrt4eLYHbqxYHbcyDKNMZV67mp7X5LGi41m8/edit?usp=sharing"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
+						className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
 					>
 						Link
 					</a>
@@ -2493,7 +2493,7 @@ for epoch_i in range(epochs):
 								href="https://www.youtube.com/watch?v=J5MxFm6p5Uc&list=PLpwJoq86vov8gnKpQkZUH4szapX1jxcmC&index=1"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
+								className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
 							>
 								James Bruton's
 							</a>{" "}
@@ -2861,7 +2861,7 @@ def predict():
 						href="https://colab.research.google.com/drive/1YrXuevHji5A9_ShettiXvMJJZbrOwEPZ?usp=sharing"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-purple-600 hover:text-purple-800 underline decoration-purple-300 hover:decoration-purple-500 transition-colors"
+						className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
 					>
 						Link
 					</a>
