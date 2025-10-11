@@ -1,4 +1,5 @@
 import aquasProject from "./aquas.jsx";
+import gambitProject from "./gambitRobotics.jsx";
 import oddishWaterProject from "./oddishWater.jsx";
 import robotLearningProject from "./robotLearning.jsx";
 import roamLabProject from "./roamLab.jsx";
@@ -10,6 +11,7 @@ import cnnProject from "./cnn.jsx";
 
 const projectsData = [
 	aquasProject,
+	gambitProject,
 	oddishWaterProject,
 	robotLearningProject,
 	roamLabProject,
