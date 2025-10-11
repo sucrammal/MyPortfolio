@@ -106,6 +106,7 @@ const aquasProject = {
 
 			<section>
 				<h2 className="font-bold mt-4 text-xl">V1 System</h2>
+				<br></br>
 				<img
 					src="/images/aquas/aquasBoat_v1.JPG"
 					alt="AQUAS V1 Boat"
@@ -157,41 +158,39 @@ const aquasProject = {
 				</ul>
 
 				<h3 className="font-semibold mt-4">Sensor Buoy</h3>
-				<ul className="list-disc ml-6">
-					<li>SD card for saving data</li>
-					<li>
-						TP4056 Solar charger with cycling circuitry to protect
-						the battery and keep the circuit running.
-					</li>
-					<li>
-						ESP32 for low power consumption and future WiFi/wireless
-						integration
-					</li>
-					<li>
-						Modified the underlying EZO_I2C library to work with
-						ESP32.
-					</li>
-					<li>
-						Power cycling that switches off all sensor peripheries
-						during down time, sampling only at custom intervals.
-					</li>
-					<li>
-						Waterproof packaging and anchor. Weighting allows the
-						buoy to stay mostly beneath the surface to prevent
-						tampering and keep a low profile.
-					</li>
-				</ul>
 
-				<video width="640" height="480" controls className="mt-4">
-					<source
-						src="/images/aquas/aquasAutonShortened.mp4"
-						type="video/mp4"
+				<div className="flex flex-col md:flex-row items-start gap-6 my-4">
+					<img
+						src="/images/aquas/aquas-v1-buoy-guts.JPG"
+						alt="Sensor Buoy"
+						className="w-full md:w-3/12 object-contain"
 					/>
-					Your browser does not support the video tag.
-				</video>
-				<p className="text-sm text-gray-600 mt-2">
-					Autonomous sampling collection and patrol demonstration
-				</p>
+					<ul className="list-disc ml-6 flex-1">
+						<li>SD card for saving data</li>
+						<li>
+							TP4056 Solar charger with cycling circuitry to
+							protect the battery and keep the circuit running.
+						</li>
+						<li>
+							ESP32 for low power consumption and future
+							WiFi/wireless integration
+						</li>
+						<li>
+							Modified the underlying EZO_I2C library to work with
+							ESP32.
+						</li>
+						<li>
+							Power cycling that switches off all sensor
+							peripheries during down time, sampling only at
+							custom intervals.
+						</li>
+						<li>
+							Waterproof packaging and anchor. Weighting allows
+							the buoy to stay mostly beneath the surface to
+							prevent tampering and keep a low profile.
+						</li>
+					</ul>
+				</div>
 
 				<h4 className="font-semibold mt-4">ESP32 Sensor Buoy Code</h4>
 				<SyntaxHighlighter
@@ -204,21 +203,7 @@ const aquasProject = {
 						fontSize: "0.75rem",
 					}}
 				>
-					{`#include <Ezo_i2c_esp32.h>
-#include <Wire.h>
-#include <Ezo_i2c_util_esp32.h>
-#include <SD.h>
-#include <SPI.h>
-#include <esp_sleep.h>
-#include <esp_wifi.h>
-#include <esp_bt.h>
-#include <driver/adc.h>
-#include <esp_adc_cal.h>
-#include <DS3231.h>
-#include <WiFi.h>
-#include <sequencer3.h>
-#include <sequencer4.h>
-#include <driver/rtc_io.h>
+					{`
 
 /*
  * ESP32 Sensor Buoy Operation Pattern:
@@ -240,62 +225,7 @@ const aquasProject = {
  *    - sleepStep puts ESP32 back to deep sleep
  */
 
-// SD Card power control pin (HIGH = power on, LOW = power off)
-const int sdCardPowerPin = 4;
-const int sdCardCSPin = 5;
-
-// Interlink isolated channel disable pin. HIGH = disable
-const int interlinkIsolatedDisablePin = 25;  // RTC_GPIO6
-const int interlinkNonIsolatedDisablePin = 26;  // RTC_GPIO7
-
-// Turbidity sensor pin (ADC1_CH6 on GPIO34)
-const int turbidityPin = 34;
-
-// Sleep duration in microseconds (1 hour = 3600000000 microseconds)
-const uint64_t SLEEP_DURATION = 60000000ULL;  // 1 minute
-
-String filename = "/sensor.csv";
-
-// RTC object
-DS3231 rtc;
-
-// EZO interlink sensor configuration
-Ezo_board DO = Ezo_board(97, "DO");     //dissolved oxygen
-Ezo_board PH = Ezo_board(99, "PH");     //ph
-Ezo_board EC = Ezo_board(100, "EC");    //electrical conductivity
-Ezo_board RTD = Ezo_board(102, "RTD");  //temperature
-
-// Single buffers to hold the current sensor readings
-char ph_receive_buffer[32];
-char rtd_receive_buffer[32];
-char do_receive_buffer[32];
-char ec_receive_buffer[32];
-
-// Turbidity reading variable
-float turbidityNTU = 0.0;
-
-// ADC calibration
-esp_adc_cal_characteristics_t adc_chars;
-
-// Overall system error code (0 = success)
-int system_error_code = 0;
-
-// Function to read turbidity from the sensor
-float readTurbidity(float temperature) {
-  int sensorValue = analogRead(turbidityPin);
-  float voltage = sensorValue * (3.3 / 4095.0);
-  
-  // Convert voltage to NTU using quadratic formula for 3.3V operation
-  float ntu = -1120.4 * voltage * voltage + 5742.3 * voltage - 4352.9;
-  
-  // Apply temperature compensation
-  float tempCompensation = 1.0 + 0.02 * (temperature - 20.0);
-  ntu = ntu / tempCompensation;
-  
-  if (ntu < 0) ntu = 0;
-  return ntu;
-}
-
+# an important sleep function I wanted to highlight that switches off unneeded peripherals to keep power consumption low.
 void sleepStep() {
   Serial.println("Sleep step completed - going to deep sleep...");
   
@@ -359,6 +289,19 @@ void sleepStep() {
 						detection and docking.
 					</li>
 				</ul>
+				<h3 className="font-semibold mt-4">
+					Autonomous Sampling and Patrol
+				</h3>
+				<video width="640" height="480" controls className="mt-4">
+					<source
+						src="/images/aquas/aquasAutonShortened.mp4"
+						type="video/mp4"
+					/>
+					Your browser does not support the video tag.
+				</video>
+				<p className="text-sm text-gray-600 mt-2">
+					Autonomous sampling collection and patrol demonstration
+				</p>
 			</section>
 
 			<section>
