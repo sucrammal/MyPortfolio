@@ -87,16 +87,17 @@ const gambitProject = {
 						Since I made progress quickly, I was also tasked with{" "}
 						<strong>web and UX development projects</strong> —
 						building out the recipe-generation suite, user control
-						dashboard that enabled dynamic cook-time adjustments
-						based on temperature readings, implemented LLM response
-						caching to speed up planning, coordinated multi-burner
-						agents, and designed a visual overlay for real-time blob
-						detection of food items, etc...
+						dashboard that enabled dynamic cook-time adjustments,
+						implemented caching to speed up LLM response and
+						planning time, designed guardrails for agent to
+						coordinate multi-burner recipes, and designed a visual
+						overlay for real-time blob detection of food items,
+						etc...
 					</li>
 					<li>
-						Developed pipelines for image preprocessing (CLAHE, HSV
-						color analysis) and lighting/angle robustness testing to
-						ensure consistent real-world performance.
+						Developed pipelines for image preprocessing and
+						lighting/angle robustness testing to ensure consistent
+						real-world performance.
 					</li>
 				</ul>
 
@@ -108,16 +109,9 @@ const gambitProject = {
 						models closer to production deployment.
 					</li>
 					<li>
-						Expanded role beyond CV/ML to include{" "}
-						<strong>front-end interface design</strong> that bridged
-						user experience with underlying ML
-						pipelines—streamlining model interpretability and
-						debugging.
-					</li>
-					<li>
-						Enhanced the Viam ecosystem through real-world feedback,
-						helping shape its data workflows for robotics
-						developers.
+						Expanded role beyond CV/ML to include frontend
+						development, cooking agent design, and logging tools for
+						greater observability.
 					</li>
 				</ul>
 
@@ -127,13 +121,19 @@ const gambitProject = {
 						Python
 					</span>
 					<span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
-						Viam Platform
+						Viam
 					</span>
 					<span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
-						React
+						Svelte
 					</span>
 					<span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
-						UI/UX Design
+						Go
+					</span>
+					<span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
+						MongoDB
+					</span>
+					<span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
+						Claude VLMs
 					</span>
 					<span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
 						Machine Learning
