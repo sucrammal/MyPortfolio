@@ -8,10 +8,12 @@ import geochainProject from "./geochain.jsx";
 import vectariProject from "./vectari.jsx";
 import bb8Project from "./bb8.jsx";
 import cnnProject from "./cnn.jsx";
+import virtualDollyProject from "./virtualDolly.jsx";
 
 const projectsData = [
 	aquasProject,
 	gambitProject,
+	virtualDollyProject,
 	oddishWaterProject,
 	robotLearningProject,
 	roamLabProject,
