@@ -1,9 +1,9 @@
 const gambitProject = {
-	title: "Gambit Robotics",
+	title: "CV @ Gambit Robotics",
 	shortDescription:
 		"Built and improved computer vision, model evaluation, and interface systems for a smart cooking robot powered by Viam.",
 	tags: [
-		"Computer Vision",
+		"Data Science",
 		"Machine Learning",
 		"Viam",
 		"Full-Stack",
@@ -14,7 +14,7 @@ const gambitProject = {
 		"Robotics",
 	],
 	image: "/images/gambit/gambit-demo.jpg",
-	labels: ["Computer Vision", "Robotics"],
+	labels: ["Data Science", "Robotics"],
 	fullContent: (
 		<div>
 			<section>
@@ -139,7 +139,7 @@ const gambitProject = {
 						Machine Learning
 					</span>
 					<span className="px-2 py-1 text-s rounded-full bg-gray-100 text-gray-600">
-						Computer Vision
+						Data Science
 					</span>
 				</div>
 			</section>
