@@ -14,7 +14,7 @@ const gambitProject = {
 		"Robotics",
 	],
 	image: "/images/gambit/gambit-demo.jpg",
-	labels: ["Data Science", "Robotics"],
+	labels: ["Data Science", "Robotics", "Hardware"],
 	fullContent: (
 		<div>
 			<section>

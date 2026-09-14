@@ -15,7 +15,7 @@ const roamLabProject = {
 		"CAD",
 	],
 	image: "/images/ROAM/roamMyHandThumbnail.png",
-	labels: ["Robotics", "Data Science"],
+	labels: ["Robotics", "Data Science", "Hardware"],
 	fullContent: (
 		<div>
 			<section>

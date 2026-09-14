@@ -16,7 +16,7 @@ const aquasProject = {
 		"ESP32",
 	],
 	image: "/images/aquas/aquas-thumbnail.JPG",
-	labels: ["Robotics", "Web Development"],
+	labels: ["Robotics", "Web Development", "Hardware"],
 	fullContent: (
 		<div>
 			<section>

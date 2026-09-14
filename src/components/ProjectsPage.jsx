@@ -52,7 +52,7 @@ function ProjectsPage() {
 			{/* Navigation Bar with Search */}
 			<nav className="flex flex-col sm:flex-row justify-between items-center bg-teal-50/50 backdrop-blur-sm py-4 sm:py-6 px-4 sm:px-36 shadow-sm mx-auto gap-4 sm:gap-0">
 				<div className="flex flex-wrap justify-center sm:justify-start gap-2 w-full sm:w-auto">
-					{["All", "Data Science", "Robotics", "Web Development"].map(
+					{["All", "Data Science", "Robotics", "Web Development", "Hardware"].map(
 						(category) => (
 							<button
 								key={category}

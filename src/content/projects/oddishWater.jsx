@@ -16,7 +16,7 @@ const oddishWaterProject = {
 		"GPU",
 	],
 	image: "/images/oddishWater/oddishWaterLayout.png",
-	labels: ["Robotics", "Web Development"],
+	labels: ["Robotics", "Web Development", "Hardware"],
 	fullContent: (
 		<div>
 			<section>

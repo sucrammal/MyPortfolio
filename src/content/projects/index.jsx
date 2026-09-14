@@ -9,8 +9,12 @@ import vectariProject from "./vectari.jsx";
 import bb8Project from "./bb8.jsx";
 import cnnProject from "./cnn.jsx";
 import virtualDollyProject from "./virtualDolly.jsx";
+import viamProject from "./viam.jsx";
+import fpgaHftProject from "./fpgaHft.jsx";
 
 const projectsData = [
+	viamProject,
+	fpgaHftProject,
 	aquasProject,
 	gambitProject,
 	virtualDollyProject,
