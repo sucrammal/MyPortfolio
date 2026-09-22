@@ -8,12 +8,17 @@ const aquasProject = {
 	tags: [
 		"CAD",
 		"Electronics",
+		"PCB Design",
+		"KiCad",
 		"Autonomous",
 		"Arduino",
 		"Environment",
 		"Linux",
 		"Go",
 		"ESP32",
+		"FastAPI",
+		"Postgres",
+		"Next.js",
 	],
 	image: "/images/aquas/aquas-thumbnail.JPG",
 	labels: ["Robotics", "Web Development", "Hardware"],
@@ -102,6 +107,158 @@ const aquasProject = {
 						</tr>
 					</tbody>
 				</table>
+			</section>
+
+			<section>
+				<h2 className="font-bold mt-4 text-xl">V2 System</h2>
+
+				<h3 className="font-semibold mt-4">Sampler Carrier Board</h3>
+				<img
+					src="/images/aquas/aquasV2Pcb.png"
+					alt="V2 sampler carrier board, top layer"
+					className="w-9/12"
+				/>
+				<p className="mt-2">
+					V1 built each water sampler as a stack of two hand-wired
+					shields, which made every module a fresh soldering job and a
+					fresh set of faults to chase. V2 collapses both shields into
+					one two-layer carrier board so a sampler module becomes a
+					populated PCB plus a plug-in harness &mdash; the thing we
+					actually need to produce more of.
+				</p>
+				<ul className="list-disc ml-6">
+					<li>
+						118 &times; 74 mm, two copper layers on 1.6 mm FR4, 0.2 mm
+						minimum trace and clearance. Laid out in KiCad and sent
+						out as a standard Gerber/Excellon package.
+					</li>
+					<li>
+						An ESP32 module replaces V1&apos;s Arduino Nano, so each
+						sampler carries its own wireless link rather than
+						depending on the boat&apos;s Pi for connectivity.
+					</li>
+					<li>
+						Five independent load channels: four NPN BJT low-side
+						drivers for the sampling solenoids and one MOSFET channel
+						for the peristaltic pump. Every channel gets its own base
+						or gate resistor and a flyback diode across the load.
+					</li>
+					<li>
+						Three 3-pin sensor headers carrying signal, power, and
+						ground for the optical water-level sensors, plus a spare
+						2-pin input.
+					</li>
+					<li>
+						An onboard LM2596 buck converter &mdash; inductor, catch
+						diode, and bulk capacitance on the board &mdash; so a
+						module runs straight off the boat&apos;s 14V rail instead
+						of needing its own step-down brick.
+					</li>
+					<li>
+						Every solenoid, pump, and sensor lands on a keyed JST
+						connector, so building or swapping a module needs no
+						soldering to the board itself.
+					</li>
+					<li>
+						Deliberately mixed assembly: SMD passives and diodes to
+						keep the board small, but TO-220 power devices and
+						through-hole connectors for heat dissipation and field
+						servicing.
+					</li>
+				</ul>
+
+				<h4 className="font-semibold mt-4">Schematic</h4>
+				<img
+					src="/images/aquas/aquasV2Schematic.png"
+					alt="Sampler carrier board schematic"
+					className="w-9/12"
+				/>
+				<p className="text-sm text-gray-600 mt-2">
+					Earlier revision of the carrier board, before the move from
+					the Arduino Nano to the ESP32. The three stages carried over
+					unchanged.
+				</p>
+				<ul className="list-disc ml-6">
+					<li>
+						<strong>Drive stage (left):</strong> four identical
+						channels, each a GPIO through a base resistor into an NPN
+						transistor that sinks the solenoid to ground, with a
+						diode across the coil to clamp the inductive kick when
+						the valve closes.
+					</li>
+					<li>
+						<strong>Sensor and pump stage (middle):</strong> the
+						level-sensor headers plus the MOSFET pump channel, which
+						carries a gate pull-down so the pump stays off while the
+						microcontroller boots and its pins float.
+					</li>
+					<li>
+						<strong>Power stage (right):</strong> fused and
+						reverse-polarity-protected input into the buck converter,
+						which derives logic power while the high-current loads
+						stay on the raw battery rail.
+					</li>
+				</ul>
+
+				<h3 className="font-semibold mt-4">Fleet Data Platform</h3>
+				<img
+					src="/images/aquas/aquasLoggingDashboard.png"
+					alt="AQUAS telemetry dashboard"
+					className="w-9/12"
+				/>
+				<p className="text-sm text-gray-600 mt-2">
+					Dashboard running against seeded telemetry: 30-day metric
+					averages, a selectable trend chart, and the raw reading table.
+				</p>
+				<p className="mt-2">
+					V1 logged to a single MySQL table written by one boat. As the
+					fleet grew we rebuilt the logging stack as its own
+					application, so telemetry from every robot and buoy lands in
+					one queryable place.
+				</p>
+				<ul className="list-disc ml-6">
+					<li>
+						FastAPI service over a Postgres/TimescaleDB instance,
+						using an async connection pool so concurrent dashboard
+						queries share one set of database connections.
+					</li>
+					<li>
+						The browser never sends SQL. The frontend posts a view ID
+						and parameters to a single endpoint, and the backend maps
+						that ID onto a whitelisted, parameterized query &mdash;
+						new views are added server-side rather than by widening
+						what clients may ask for.
+					</li>
+					<li>
+						Each reading stores timestamp, latitude/longitude,
+						temperature, pH, turbidity (NTU), electrical conductivity
+						(&micro;S/cm), and dissolved oxygen (mg/L) &mdash; the
+						fields our research PI needs to evaluate algaecide
+						efficacy.
+					</li>
+					<li>
+						Next.js dashboard with session-based auth, interactive
+						time-series charts, and a sortable table of recent
+						readings. Signed tokens issued at login are verified by
+						the API on every request.
+					</li>
+					<li>
+						A synthetic data generator produces realistic multi-week
+						time series, so the dashboard could be built and demoed
+						against plausible data before deployment.
+					</li>
+				</ul>
+				<p className="mt-2">
+					Repo:{" "}
+					<a
+						href="https://github.com/AQUAS-mission/aquas-logging"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="text-teal-600 hover:text-teal-700 underline decoration-teal-300 hover:decoration-teal-500 transition-colors"
+					>
+						AQUAS-mission/aquas-logging
+					</a>
+				</p>
 			</section>
 
 			<section>
