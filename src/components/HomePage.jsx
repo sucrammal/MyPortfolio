@@ -7,7 +7,7 @@ function HomePage() {
 		<div className="min-h-screen bg-white text-gray-800 font-inter">
 			<title>Marcus Lam - Portfolio</title>
 			<Header />
-			<div className="flex flex-col md:flex-row items-center md:items-start gap-8 py-8 md:py-12 px-4 md:px-6 bg-white/80 backdrop-blur-sm shadow-md h-auto min-h-[500px] max-w-7xl mx-auto mt-4 md:mt-8 rounded-lg">
+			<div className="flex flex-col md:flex-row items-center md:items-start gap-8 py-8 md:py-12 px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm shadow-md h-auto min-h-[500px] max-w-7xl min-[1700px]:max-w-[1700px] mx-auto mt-4 md:mt-8 rounded-lg">
 				{/* Left Section: Image and Icons */}
 				<div className="flex flex-col items-center w-full md:w-1/3">
 					<img
@@ -62,16 +62,21 @@ function HomePage() {
 					</h1>
 					<p className="mt-4 md:mt-6 text-base md:text-lg leading-relaxed text-gray-700">
 						From AQUAS - an autonomous robot to detect and clear
-						harmful algal blooms, to CV explorations, and to online
-						multiplayer games, I try to inject my passion for
+						harmful algal blooms, to robotics platform work at Viam, and to various
+						ML and web projects, I try to inject my passion for
 						building into three main disciplines: robotics, data
 						science, and web dev.
 						<br />
 						<br />
-						I'm a Sophomore studying Computer Engineering at
+						I'm a Senior studying Computer Engineering at
 						Columbia University. My experience comes from:
 					</p>
 					<ul className="mt-2 ml-6 text-base md:text-lg leading-relaxed text-gray-700 space-y-1 list-disc">
+						<li>
+							Robotics platform development @ Viam, building
+							features for visualization, simulation, and motion
+							planning
+						</li>
 						<li>
 							CV engineering @ Gambit Robotics, a startup by
 							Nicole Mafeo and Eliot Horowitz
@@ -137,10 +142,9 @@ function HomePage() {
 			<section className="bg-teal-50/50 backdrop-blur-sm border-t border-teal-100/20 py-4 md:py-6 mt-8 md:mt-12">
 				<p className="text-center text-sm md:text-base text-gray-700 font-medium max-w-4xl mx-auto px-4">
 					Latest news:{" "}
-					<strong className="text-teal-700">[2025/8]</strong> Finished
-					and deployed AQUAS and the V1 Water Sampler in Morningside
-					Pond, and collecting data via our sensor buoy for the first
-					time! 🌊
+					<strong className="text-teal-700">[2026/9]</strong> AQUAS won
+					a $100K Columbia Global Impact Labs grant! Also wrapped up
+					an amazing internship at Viam. 🚀
 				</p>
 			</section>
 		</div>

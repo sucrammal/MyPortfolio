@@ -21,7 +21,7 @@ const Header = () => {
 
 	return (
 		<header className="w-full bg-teal-300/20 backdrop-blur-sm border-b border-teal-300/30">
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div className="max-w-7xl min-[1700px]:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8">
 				<nav className="flex items-center justify-between h-20">
 					{/* Logo/Name */}
 					<div className="flex-shrink-0">

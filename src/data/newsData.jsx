@@ -1,5 +1,51 @@
 const newsData = [
     {
+      id: 2,
+      title: "Senior Year Update - 2026",
+      shortDescription: "AQUAS wins Columbia Global Impact Labs grant, Viam internship wrap-up, focusing on value-driven engineering for ag-robotics",
+      tags: ["AQUAS", "Viam", "Robotics", "Internship"],
+      fullContent: (
+        <div>
+          <section>
+            <h4 className="font-semibold mt-4">Senior Year Highlights</h4>
+            <ul className="list-disc ml-6">
+              <li>AQUAS won a $100K Columbia Global Impact Labs grant</li>
+              <li>Had an amazing internship at Viam</li>
+              <li>Reflecting on value-driven engineering and joining an ag-robotics startup post-grad</li>
+            </ul>
+          </section>
+          <br></br>
+          <p>
+            What a year it's been! As I head into my senior year at Columbia, I'm excited to share some major developments and reflections.
+            <br></br>
+            <br></br>
+            <strong>AQUAS - Columbia Global Impact Labs Grant</strong>
+            <br></br>
+            The hard work from our team on AQUAS finally paid off! We won a $50,000 grant from Columbia Global Impact Labs to monitor and help clean more bodies of water in NYC. There's also an additional $50,000 available if we execute well on the grant's objectives. This is huge for us - it validates the work we've been doing to address harmful algal blooms and gives us the resources to scale our efforts across more water bodies in the city. The team is pumped!
+            <br></br>
+            <br></br>
+            <strong>Viam Internship - Growth and Independence</strong>
+            <br></br>
+            This summer, I had an incredible internship at Viam working alongside other talented interns and team members. The experience was way more than just coding - I got to work super independently on meaningful projects, learn from exceptional engineers, and really internalize how production robotics systems work. The team environment was collaborative and supportive, and I bonded with fellow interns over shared love for robotics. Some highlights include shipping LLM-assisted robot config editing features and building a 3D motion-plan debugger that's now part of the platform. Honestly, the learning velocity and autonomy were exactly what I needed heading into my final year.
+            <br></br>
+            <br></br>
+            <strong>Post-Grad Vision - Value-Driven Engineering</strong>
+            <br></br>
+            After reflecting on my experiences, I've decided to be much more intentional about what kind of problems I want to solve and who I want to build with. Rather than just optimizing for prestige or compensation, I'm focusing on:
+            <br></br>
+            - Working on problems that directly impact sustainability or agriculture (areas I care deeply about)
+            <br></br>
+            - Joining smaller teams where I can have outsized learning and impact
+            <br></br>
+            - Building with people who are mission-driven and collaborative
+            <br></br>
+            <br></br>
+            I'm excited to share that I'll likely be joining an ag-robotics startup post-grad! This aligns perfectly with my passion for robotics, sustainability, and independent learning. I'm looking forward to contributing to the future of agricultural technology.
+          </p>
+        </div>
+      ),
+    },
+    {
       id: 1,
       title: "Winter 2024 Update",
       shortDescription: "New porfolio site, building Geochain, improving engineering documentation",

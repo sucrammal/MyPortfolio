@@ -43,26 +43,28 @@ function News() {
 			</div>
 
 			{/* Navigation Bar with Search */}
-			<nav className="flex justify-start items-center bg-teal-50/50 backdrop-blur-sm py-4 sm:py-6 px-4 sm:px-36 shadow-sm">
-				{/* Search Bar */}
-				<div className="relative flex items-center w-64">
-					{/* Search Icon */}
-					<button className="absolute right-0 p-2 text-teal-600 hover:text-teal-700 transition-colors z-10">
-						<Search size={24} />
-					</button>
-					{/* Search Input */}
-					<input
-						type="text"
-						placeholder="Search news..."
-						value={searchTerm}
-						onChange={(e) => setSearchTerm(e.target.value)}
-						className="w-full py-2 px-4 pr-10 rounded-full border border-teal-100 focus:outline-none focus:border-teal-300 transition-all duration-300"
-					/>
+			<nav className="bg-teal-50/50 backdrop-blur-sm shadow-sm">
+				<div className="flex justify-start items-center max-w-7xl min-[1700px]:max-w-[1700px] mx-auto py-4 sm:py-6 px-4 sm:px-6 lg:px-8">
+					{/* Search Bar */}
+					<div className="relative flex items-center w-full max-w-xs">
+						{/* Search Icon */}
+						<button className="absolute right-0 p-2 text-teal-600 hover:text-teal-700 transition-colors z-10">
+							<Search size={24} />
+						</button>
+						{/* Search Input */}
+						<input
+							type="text"
+							placeholder="Search news..."
+							value={searchTerm}
+							onChange={(e) => setSearchTerm(e.target.value)}
+							className="w-full py-2 px-4 pr-10 rounded-full border border-teal-100 focus:outline-none focus:border-teal-300 transition-all duration-300"
+						/>
+					</div>
 				</div>
 			</nav>
 
 			{/* News Articles Section */}
-			<main className="max-w-7xl mx-auto px-6 py-12">
+			<main className="max-w-7xl min-[1700px]:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
 				<h1 className="text-4xl font-bold text-teal-600 mb-12">
 					Latest News
 				</h1>

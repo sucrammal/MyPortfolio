@@ -50,14 +50,20 @@ function ProjectsPage() {
 			<Header />
 
 			{/* Navigation Bar with Search */}
-			<nav className="flex flex-col sm:flex-row justify-between items-center bg-teal-50/50 backdrop-blur-sm py-4 sm:py-6 px-4 sm:px-36 shadow-sm mx-auto gap-4 sm:gap-0">
-				<div className="flex flex-wrap justify-center sm:justify-start gap-2 w-full sm:w-auto">
-					{["All", "Data Science", "Robotics", "Web Development", "Hardware"].map(
-						(category) => (
+			<nav className="bg-teal-50/50 backdrop-blur-sm shadow-sm">
+				<div className="flex flex-col sm:flex-row justify-between items-center max-w-7xl min-[1700px]:max-w-[1700px] mx-auto py-4 sm:py-6 px-4 sm:px-6 lg:px-8 gap-4 sm:gap-6">
+					<div className="flex flex-wrap justify-center sm:justify-start gap-2 w-full sm:flex-1">
+						{[
+							"All",
+							"Data Science",
+							"Robotics",
+							"Web Development",
+							"Hardware",
+						].map((category) => (
 							<button
 								key={category}
 								onClick={() => setSelectedCategory(category)}
-								className={`px-4 sm:px-6 py-2 rounded-md transition-all duration-200 text-sm sm:text-base ${
+								className={`px-3 sm:px-4 md:px-6 py-2 rounded-md transition-all duration-200 text-sm sm:text-base whitespace-nowrap ${
 									selectedCategory === category
 										? "bg-teal-600 hover:bg-teal-700 text-white shadow-md"
 										: "bg-white/80 text-gray-700 border border-teal-100 hover:border-teal-300 hover:bg-teal-50"
@@ -65,52 +71,52 @@ function ProjectsPage() {
 							>
 								{category}
 							</button>
-						)
-					)}
-				</div>
+						))}
+					</div>
 
-				<div className="relative flex items-center w-full sm:w-auto justify-end">
-					<div
-						className={`flex items-center transition-all duration-300 ${
-							isSearchExpanded ? "w-full sm:w-64" : "w-10"
-						}`}
-					>
-						<button
-							onClick={() =>
-								setIsSearchExpanded(!isSearchExpanded)
-							}
-							className="absolute right-0 p-2 text-teal-600 hover:text-teal-700 transition-colors z-10"
-						>
-							<Search size={24} />
-						</button>
-						<input
-							type="text"
-							placeholder="Search projects..."
-							value={searchTerm}
-							onChange={(e) => setSearchTerm(e.target.value)}
-							className={`w-full py-2 px-4 pr-10 rounded-full border border-teal-100 focus:outline-none focus:border-teal-300 transition-all duration-300 text-sm sm:text-base ${
-								isSearchExpanded
-									? "opacity-100"
-									: "opacity-0 w-0 p-0"
+					<div className="relative flex items-center w-full sm:w-auto">
+						<div
+							className={`flex items-center transition-all duration-300 ${
+								isSearchExpanded ? "w-full sm:w-64" : "w-10"
 							}`}
-							style={{
-								pointerEvents: isSearchExpanded
-									? "auto"
-									: "none",
-							}}
-						/>
+						>
+							<button
+								onClick={() =>
+									setIsSearchExpanded(!isSearchExpanded)
+								}
+								className="absolute right-0 p-2 text-teal-600 hover:text-teal-700 transition-colors z-10"
+							>
+								<Search size={24} />
+							</button>
+							<input
+								type="text"
+								placeholder="Search projects..."
+								value={searchTerm}
+								onChange={(e) => setSearchTerm(e.target.value)}
+								className={`w-full py-2 px-4 pr-10 rounded-full border border-teal-100 focus:outline-none focus:border-teal-300 transition-all duration-300 text-sm sm:text-base ${
+									isSearchExpanded
+										? "opacity-100"
+										: "opacity-0 w-0 p-0"
+								}`}
+								style={{
+									pointerEvents: isSearchExpanded
+										? "auto"
+										: "none",
+								}}
+							/>
+						</div>
 					</div>
 				</div>
 			</nav>
 
 			{/* Projects Section */}
-			<main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
+			<main className="max-w-7xl min-[1700px]:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
 				<h1 className="text-3xl sm:text-4xl font-bold text-teal-600 mb-4">
 					My Projects
 				</h1>
 
 				{filteredProjects.length > 0 ? (
-					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 min-[1700px]:grid-cols-4 gap-3 sm:gap-4">
 						{filteredProjects.map((project, index) => (
 							<div
 								key={index}
