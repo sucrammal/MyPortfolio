@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" font-family="Inter,Helvetica,Arial,sans-serif">
+<rect width="800" height="400" fill="#ffffff"/>
+<text x="70" y="30" font-size="18" font-weight="700" fill="#1f2937">Action error by task phase vs. inference delay</text>
+<text x="70" y="50" font-size="12" fill="#6b7280">Held-out demos, Diffusion Policy, K=16, T_a=16 (normalized MAE). Transport tolerates delay; contact phases do not.</text>
+<line x1="70" x2="770" y1="340.0" y2="340.0" stroke="#e5e7eb"/>
+<text x="62" y="344.0" font-size="11" text-anchor="end" fill="#6b7280">0.0</text>
+<line x1="70" x2="770" y1="250.0" y2="250.0" stroke="#e5e7eb"/>
+<text x="62" y="254.0" font-size="11" text-anchor="end" fill="#6b7280">0.1</text>
+<line x1="70" x2="770" y1="160.0" y2="160.0" stroke="#e5e7eb"/>
+<text x="62" y="164.0" font-size="11" text-anchor="end" fill="#6b7280">0.2</text>
+<line x1="70" x2="770" y1="70.0" y2="70.0" stroke="#e5e7eb"/>
+<text x="62" y="74.0" font-size="11" text-anchor="end" fill="#6b7280">0.3</text>
+<rect x="89.8" y="202.3" width="23.7" height="137.7" fill="#99f6e4" rx="2"/>
+<rect x="115.5" y="171.7" width="23.7" height="168.3" fill="#14b8a6" rx="2"/>
+<rect x="141.2" y="154.6" width="23.7" height="185.4" fill="#115e59" rx="2"/>
+<text x="128.3" y="360" font-size="13" text-anchor="middle" fill="#374151">approach</text>
+<rect x="206.5" y="202.3" width="23.7" height="137.7" fill="#99f6e4" rx="2"/>
+<rect x="232.2" y="178.9" width="23.7" height="161.1" fill="#14b8a6" rx="2"/>
+<rect x="257.8" y="168.1" width="23.7" height="171.9" fill="#115e59" rx="2"/>
+<text x="245.0" y="360" font-size="13" text-anchor="middle" fill="#374151">grasp</text>
+<rect x="307.3" y="70" width="108.7" height="270" fill="#f0fdfa" rx="6"/>
+<rect x="323.2" y="239.2" width="23.7" height="100.8" fill="#99f6e4" rx="2"/>
+<rect x="348.8" y="225.7" width="23.7" height="114.3" fill="#14b8a6" rx="2"/>
+<rect x="374.5" y="223.0" width="23.7" height="117.0" fill="#115e59" rx="2"/>
+<text x="361.7" y="360" font-size="13" text-anchor="middle" fill="#374151">transport</text>
+<rect x="439.8" y="233.8" width="23.7" height="106.2" fill="#99f6e4" rx="2"/>
+<rect x="465.5" y="211.3" width="23.7" height="128.7" fill="#14b8a6" rx="2"/>
+<rect x="491.2" y="197.8" width="23.7" height="142.2" fill="#115e59" rx="2"/>
+<text x="478.3" y="360" font-size="13" text-anchor="middle" fill="#374151">insert</text>
+<rect x="556.5" y="142.0" width="23.7" height="198.0" fill="#99f6e4" rx="2"/>
+<rect x="582.2" y="105.1" width="23.7" height="234.9" fill="#14b8a6" rx="2"/>
+<rect x="607.8" y="79.0" width="23.7" height="261.0" fill="#115e59" rx="2"/>
+<text x="595.0" y="360" font-size="13" text-anchor="middle" fill="#374151">release</text>
+<rect x="673.2" y="198.7" width="23.7" height="141.3" fill="#99f6e4" rx="2"/>
+<rect x="698.8" y="166.3" width="23.7" height="173.7" fill="#14b8a6" rx="2"/>
+<rect x="724.5" y="151.0" width="23.7" height="189.0" fill="#115e59" rx="2"/>
+<text x="711.7" y="360" font-size="13" text-anchor="middle" fill="#374151">retreat</text>
+<rect x="540" y="378" width="12" height="12" fill="#99f6e4" rx="2"/><text x="557" y="388" font-size="12" fill="#374151">d = 0</text>
+<rect x="618" y="378" width="12" height="12" fill="#14b8a6" rx="2"/><text x="635" y="388" font-size="12" fill="#374151">d = 5</text>
+<rect x="696" y="378" width="12" height="12" fill="#115e59" rx="2"/><text x="713" y="388" font-size="12" fill="#374151">d = 8</text>
+<text x="70" y="388" font-size="11" fill="#9ca3af">d = control steps of delay between observation and executed action</text>
+</svg>

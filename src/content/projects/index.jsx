@@ -11,8 +11,10 @@ import cnnProject from "./cnn.jsx";
 import virtualDollyProject from "./virtualDolly.jsx";
 import viamProject from "./viam.jsx";
 import fpgaHftProject from "./fpgaHft.jsx";
+import loopwattProject from "./loopwatt.jsx";
 
 const projectsData = [
+	loopwattProject,
 	viamProject,
 	fpgaHftProject,
 	aquasProject,
